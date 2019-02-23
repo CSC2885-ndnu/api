@@ -1,0 +1,26 @@
+package com.notefinder.controllers;  
+import java.util.List;    
+import org.springframework.beans.factory.annotation.Autowired;    
+import org.springframework.stereotype.Controller;  
+import org.springframework.ui.Model;  
+import org.springframework.web.bind.annotation.ModelAttribute;    
+import org.springframework.web.bind.annotation.PathVariable;    
+import org.springframework.web.bind.annotation.RequestMapping;    
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.notefinder.dao.PostDao;
+import com.notefinder.models.Post; 
+import com.notefinder.service.PostManager;
+@Controller    
+public class PostController {    
+    @Autowired    
+    PostManager manager;
+    
+    @RequestMapping("/viewpost")    
+    public String viewpost(Model m){    
+        List<Post> list=manager.getPosts();    
+        m.addAttribute("list",list);  
+        return "viewpost";    
+    } 
+}
+
