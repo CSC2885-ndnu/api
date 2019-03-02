@@ -43,8 +43,8 @@ CREATE TABLE enrolled
 (
     courseID INT,
     userID INT,
-    FOREIGN KEY (course_id_1) REFERENCES course(id),
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (courseID) REFERENCES course(id),
+    FOREIGN KEY (userID) REFERENCES user(id)
 );
 
 DROP TABLE IF EXISTS post;
@@ -149,12 +149,38 @@ INSERT INTO course VALUES (
     'Youssefi',
     'www.worldhistory.com'
 );
+INSERT INTO course VALUES (
+    2,
+    2,
+    'History',
+    'World History 101',
+    'World History',
+    20,
+    'We gon learn some history',
+    'Fall',
+    '2019',
+    'Youssefi',
+    'www.worldhistory.com'
+);
 
 INSERT INTO user VALUES (
     1,
     'Megan',
     'Wong',
     100001,
+    'mwong@student.ndnu.edu',
+    'password',
+    'flickr.com',
+    0,
+    0,
+    0,
+    '2019-02-09 00:00:00'
+);
+INSERT INTO user VALUES (
+    2,
+    'Megan',
+    'Wong',
+    200001,
     'mwong@student.ndnu.edu',
     'password',
     'flickr.com',
@@ -177,6 +203,17 @@ INSERT INTO post VALUES (
     now(),
     'Notes',
     1,
+    0
+);
+
+INSERT INTO post VALUES (
+    2,
+    'First post',
+    2,
+    now(),
+    now(),
+    'Notes',
+    2,
     0
 );
 
