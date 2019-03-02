@@ -1,37 +1,38 @@
 import java.sql.Timestamp;
 
 public class PostFlag {
-
+//EDIT: ~March 1st~ I am going to edit the variables name to match new database names.
+    
     // Variables
-    private Post post_id;
-    private User flagger;
+    private int postID;
+    private int flagger;
     private String notes;
-    private Timestamp date;
-    private boolean active;
+    private Timestamp flagDate;
+    private boolean active; //in the Database, this is a BIT value. If this fails, change database to Bool.
 
     // Constructor
-    public PostFlag(Post post_id, User flagger, String notes, Timestamp date, boolean active) {
-        this.post_id = post_id;
+    public PostFlag(int postID, int flagger, String notes, Timestamp flagDate, boolean active) {
+        this.postID = postID;
         this.flagger = flagger;
         this.notes = notes;
-        this.date = date;
+        this.flagDate = flagDate;
         this.active = active;
     }
 
     // Getters & Setters
-    public Post getPost_id() {
-        return post_id;
+    public int getPostID() {
+        return postID;
     }
 
-    public void setPost_id(Post post_id) {
-        this.post_id = post_id;
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 
-    public User getFlagger() {
+    public int getFlagger() {
         return flagger;
     }
 
-    public void setFlagger(User flagger) {
+    public void setFlagger(int flagger) {
         this.flagger = flagger;
     }
 
@@ -43,12 +44,12 @@ public class PostFlag {
         this.notes = notes;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getflagDate() {
+        return flagDate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setflagDate(Timestamp flagDate) {
+        this.flagDate = flagDate;
     }
 
     public boolean isActive() {
@@ -63,10 +64,10 @@ public class PostFlag {
     @Override
     public String toString() {
         return "PostFlag{" +
-                "post_id=" + post_id +
+                "postID=" + postID +
                 ", flagger=" + flagger +
                 ", notes='" + notes + '\'' +
-                ", date=" + date +
+                ", flagDate=" + flagDate +
                 ", active=" + active +
                 '}';
     }
