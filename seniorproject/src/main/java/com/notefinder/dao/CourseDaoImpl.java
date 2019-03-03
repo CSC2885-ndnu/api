@@ -20,9 +20,9 @@ public class CourseDaoImpl implements CourseDao
 	
 	public int save(Course p) {
 		String sql = "insert into course(id,courseCode,dept,name,description,section,syllabus,semester,year,prof,link) values(" + p.getCourse_id() 
-							+ "," + p.getCourseCode() + "," + p.getDepartment() + "," + p.getCourseName()  + "," 
-									+ p.getCourseDescription() + "," + p.getSection() + "," + p.getCourseSyllabus() + "," + p.getYear() 
-									+ "," + p.getProfessor() + "," + p.getLink() + ")";
+							+ "," + p.getCourseCode() + ",'" + p.getDepartment() + "','" + p.getCourseName()  + "','" 
+									+ p.getCourseDescription() + "'," + p.getSection() + ",'" + p.getCourseSyllabus() + "','" + p.getSemester() + "'," + p.getYear() 
+									+ ",'" + p.getProfessor() + "','" + p.getLink() + "')";
 		return template.update(sql);
 	}
 	

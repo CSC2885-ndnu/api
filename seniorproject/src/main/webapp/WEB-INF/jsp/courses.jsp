@@ -31,5 +31,6 @@
 	   <td>${course.professor}</td>
 	   <td>${course.link}</td>
 	   </tr>  
-   </c:forEach>  
+   </c:forEach> 
+   <a href="home">Home</a>  
 </table>  
