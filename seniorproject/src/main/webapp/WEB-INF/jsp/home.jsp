@@ -4,3 +4,6 @@
  <a href="viewpost">View Posts</a> 
  <a href="courses">View Course</a>
  <a href="addCourse">Add Course</a>
+ <a href="updateCourse">Update Course</a>
+ <a href="deleteCourse">Delete Course</a>
+ <a href="getCourse">Get Course By ID</a>

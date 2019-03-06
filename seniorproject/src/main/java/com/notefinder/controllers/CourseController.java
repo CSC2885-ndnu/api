@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.dao.CourseDao;
 import com.notefinder.models.Course; 
+import com.notefinder.models.CourseId;
 import com.notefinder.service.CourseManager;
 
 import java.util.Map;
@@ -30,12 +31,7 @@ public class CourseController {
     public String home(Model m){    
         return "home";    
     }
-//    @RequestMapping("/addCourse")    
-//    public String addCourse(Model m){    
-//        List<Course> list=manager.getCourse();    
-//        m.addAttribute("list",list);  
-//        return "addCourse";    
-//    } 
+    
     
     @RequestMapping(value = "/addCourse" , method = RequestMethod.GET)
     public String viewAddCourse(@ModelAttribute("courseForm") Course course, Map<String, Object> model) {
@@ -43,12 +39,6 @@ public class CourseController {
         model.put("courseForm", courseForm);
         
         //int save = manager.save(courseForm);
-         
-//        List<String> professionList = new ArrayList<>();
-//        professionList.add("Developer");
-//        professionList.add("Designer");
-//        professionList.add("IT Manager");
-//        model.put("professionList", professionList);
          
         return "addCourse";
     }
@@ -58,16 +48,93 @@ public class CourseController {
             Map<String, Object> model) {
          
     	int save = manager.save(course);
-        // implement your own registration logic here...
-         
-        // for testing purpose:
-//        System.out.println("username: " + user.getUsername());
-//        System.out.println("password: " + user.getPassword());
-//        System.out.println("email: " + user.getEmail());
-//        System.out.println("birth date: " + user.getBirthDate());
-//        System.out.println("profession: " + user.getProfession());
          
         return "home";
     }
+    
+    @RequestMapping(value = "/updateCourse" , method = RequestMethod.GET)
+    public String viewupdateCourse(@ModelAttribute("courseUpdateForm") Course course, Map<String, Object> model) {
+        Course courseForm = new Course();    
+        model.put("courseForm", courseForm);
+        
+        //int save = manager.save(courseForm);
+         
+        return "updateCourse";
+    }
+    
+    @RequestMapping(value = "/updateCourse" , method = RequestMethod.POST)
+    public String updateCourse(@ModelAttribute("courseUpdateForm") Course course,
+            Map<String, Object> model) {
+         
+    	int update = manager.update(course);
+         
+        return "home";
+    }
+    
+    @RequestMapping(value = "/deleteCourse" , method = RequestMethod.GET)
+    public String viewdeleteCourse(@ModelAttribute("courseDeleteForm") Course course, Map<String, Object> model) {
+        Course courseForm = new Course();    
+        model.put("courseForm", courseForm);
+        
+        //int save = manager.save(courseForm);
+         
+        return "deleteCourse";
+    }
+    
+    @RequestMapping(value = "/deleteCourse" , method = RequestMethod.POST)
+    public String deleteCourse(@ModelAttribute("courseDeleteForm") Course course,
+            Map<String, Object> model) {
+         
+    	int update = manager.delete(course.getCourse_id());
+         
+        return "home";
+    }
+    
+    @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
+    public String viewgetCourse(@ModelAttribute("courseGetForm") CourseId course_id, Map<String, Object> model) {
+        System.out.println(course_id);
+//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
+//        model.put("courseForm", courseForm );
+        
+        //int save = manager.save(courseForm);
+         
+        return "getCourse";
+    }
+//    @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
+//    public String viewgetCourse(@RequestParam("course_id") int course_id, Map<String, Object> model) {
+//        System.out.println(course_id);
+//    	Course courseForm = manager.getCourseById(course_id);    
+//        model.put("courseForm", courseForm );
+//        
+//        //int save = manager.save(courseForm);
+//         
+//        return "getCourse";
+//    }
+    
+    
+//    @RequestMapping(value = "/getCourse" , method = RequestMethod.POST)
+//    public String getCourse(@ModelAttribute("course_id") CourseId course_id,
+//            Map<String, Object> model) {
+//    	System.out.println(course_id);
+//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
+//        model.put("courseForm", courseForm );
+//    	//int update = manager.delete(course.getCourse_id());
+//    	//Course get = manager.getCourseById(course);
+//    	//.put("courseGetForm", get);
+//         
+//        return "viewCourse";
+//    }
+//    
+    @RequestMapping(value = "/getCourse", method = RequestMethod.POST)    
+    public String viewGetCourse(@ModelAttribute("course_id") CourseId course_id, Model m) {    
+        List<Course> list=manager.getCourseById(course_id.getCourse_id());   
+        System.out.println(course_id.getCourse_id());
+        System.out.println(list);
+        
+        m.addAttribute("list",list);  
+        return "viewCourse";    
+    }
+    
+    
 }
 
