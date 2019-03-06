@@ -27,7 +27,7 @@ public class CourseManagerImpl implements CourseManager {
 		return dao.delete(id);
 	}
 	
-	public Course getCourseById(int id) {
+	public List<Course> getCourseById(int id) {
 		return dao.getCourseById(id);
 	}
 	

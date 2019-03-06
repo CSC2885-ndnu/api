@@ -7,6 +7,6 @@ public interface CourseManager {
 	public int save(Course p);
 	public int update(Course p);
 	public int delete(int id);
-	public Course getCourseById(int id);
+	public List<Course> getCourseById(int id);
 	public List<Course> getCourse();
 }
