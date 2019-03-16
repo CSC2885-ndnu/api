@@ -7,7 +7,7 @@ USE senior_project_database;
 DROP TABLE IF EXISTS course;
 CREATE TABLE course
 (
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     courseCode INT(4),
     dept VARCHAR(255),
     name VARCHAR(255),
@@ -24,7 +24,7 @@ CREATE TABLE course
 DROP TABLE IF EXISTS user;
 CREATE TABLE user
 (
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     firstName VARCHAR(255),
     lastName VARCHAR(255),
     studentID INT(6),
@@ -66,7 +66,7 @@ CREATE TABLE post
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment
 (
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     postID INT,
     user INT, 
     createdTS DATETIME,
@@ -81,7 +81,7 @@ CREATE TABLE comment
 DROP TABLE IF EXISTS attachments;
 CREATE TABLE attachments
 (
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     postID INT,
     link VARCHAR(255),
     type VARCHAR(255),
