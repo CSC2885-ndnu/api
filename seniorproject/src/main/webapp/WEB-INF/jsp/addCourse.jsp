@@ -15,10 +15,10 @@
                 <tr>
                     <td colspan="2" align="center"><h2>Add Course</h2></td>
                 </tr>
-                <tr>
+                <%-- <tr>
                     <td>ID:</td>
                     <td><form:input  path="course_id" placeholder="int" /></td>
-                </tr>
+                </tr> --%>
                 <tr>
                     <td>Course Code:</td>
                     <td><form:input path="courseCode" /></td>

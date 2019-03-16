@@ -31,8 +31,8 @@ public class UserDaoImpl implements UserDao{
 	    return template.update(sql);    
 	} 
 	
-	public List<User> getUserById(int studentID){    
-	    return template.query("SELECT * FROM user WHERE studentID="+studentID,new RowMapper<User>(){    
+	public User getUserById(int studentID){    
+	    List<User> userList = template.query("SELECT * FROM user WHERE studentID="+studentID,new RowMapper<User>(){    
 	        public User mapRow(ResultSet rs, int row) throws SQLException {    
 	        	User u=new User();    
 	            u.setUser_id(rs.getInt(1));    
@@ -48,7 +48,8 @@ public class UserDaoImpl implements UserDao{
 	            u.setCreatedTS(rs.getTimestamp(11));
 	            return u;     
 	        }    
-	    }); 
+	    });
+	    return userList.get(0);
 	}
 	
 	public List<User> getUser(){    

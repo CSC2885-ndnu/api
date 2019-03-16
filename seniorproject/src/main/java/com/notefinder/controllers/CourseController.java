@@ -99,32 +99,8 @@ public class CourseController {
         //int save = manager.save(courseForm);
          
         return "getCourse";
-    }
-//    @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
-//    public String viewgetCourse(@RequestParam("course_id") int course_id, Map<String, Object> model) {
-//        System.out.println(course_id);
-//    	Course courseForm = manager.getCourseById(course_id);    
-//        model.put("courseForm", courseForm );
-//        
-//        //int save = manager.save(courseForm);
-//         
-//        return "getCourse";
-//    }
-    
-    
-//    @RequestMapping(value = "/getCourse" , method = RequestMethod.POST)
-//    public String getCourse(@ModelAttribute("course_id") CourseId course_id,
-//            Map<String, Object> model) {
-//    	System.out.println(course_id);
-//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
-//        model.put("courseForm", courseForm );
-//    	//int update = manager.delete(course.getCourse_id());
-//    	//Course get = manager.getCourseById(course);
-//    	//.put("courseGetForm", get);
-//         
-//        return "viewCourse";
-//    }
-//    
+    }  
+
     @RequestMapping(value = "/getCourse", method = RequestMethod.POST)    
     public String viewGetCourse(@ModelAttribute("course_id") CourseId course_id, Model m) {    
         List<Course> list=manager.getCourseById(course_id.getCourse_id());   
