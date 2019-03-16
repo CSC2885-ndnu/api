@@ -9,7 +9,7 @@ import com.notefinder.dao.CommentDao;
 import com.notefinder.models.Comment;
 
 @Service("commentManager")
-public class CommentManagerImpl {
+public class CommentManagerImpl implements CommentManager {
 	@Autowired
 	CommentDao dao;
 	
