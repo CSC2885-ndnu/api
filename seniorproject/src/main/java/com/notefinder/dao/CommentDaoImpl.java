@@ -49,7 +49,7 @@ public class CommentDaoImpl {
 				PostDaoImpl postDao = new PostDaoImpl();
 				p.setPost(postDao.getPostById(rs.getInt(2)));
 				UserDaoImpl userDao = new UserDaoImpl();
-				p.setUser(userDao.getUserById(rs.getString(3)));
+				p.setUser(userDao.getUserById(rs.getInt(3)));
 				p.setCreatedTS(rs.getTimestamp(4));
 				p.setModified(rs.getTimestamp(5));
 				p.setComment(rs.getString(6));

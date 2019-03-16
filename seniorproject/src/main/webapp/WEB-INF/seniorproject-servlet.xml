@@ -33,10 +33,16 @@
 		<property name="dataSource" ref="ds"></property>    
 	</bean>    
 	    
-	<bean id="dao" class="com.notefinder.dao.PostDaoImpl">    
+	<bean id="daoPost" class="com.notefinder.dao.PostDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean>
-	<bean id="dao2" class="com.notefinder.dao.CourseDaoImpl">    
+	<bean id="daoCourse" class="com.notefinder.dao.CourseDaoImpl">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	<bean id="daoComment" class="com.notefinder.dao.CommentDaoImpl">    
+		<property name="template" ref="jt"></property>    
+	</bean>
+	<bean id="daoUser" class="com.notefinder.dao.UserDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean>   
 </beans> 

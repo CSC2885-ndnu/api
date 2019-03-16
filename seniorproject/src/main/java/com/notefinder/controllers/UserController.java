@@ -19,10 +19,10 @@ public class UserController {
     @Autowired    
     UserManager manager;
     
-    @RequestMapping("/home")    
-    public String home(Model m){    
-        return "home";    
-    }
+//    @RequestMapping("/home")    
+//    public String home(Model m){    
+//        return "home";    
+//    }
     
     // View users in s list
     @RequestMapping("/viewuser")    
@@ -95,7 +95,7 @@ public class UserController {
     
     @RequestMapping(value = "/getUsers", method = RequestMethod.POST)    
     public String viewGetUser(@ModelAttribute("studentID") StudentID studentID, Model m) {    
-        List<User> list= manager.getUserById(studentID.getStudentID());   
+        User list= manager.getUserById(studentID.getStudentID());   
         System.out.println(studentID.getStudentID());
         System.out.println(list);
         
