@@ -72,7 +72,7 @@ CREATE TABLE comment
     createdTS DATETIME,
     modified DATETIME,
     comment VARCHAR(255),
-    flagged BIT,
+    flagged BOOLEAN,
     PRIMARY KEY(id),
     FOREIGN KEY(postID) REFERENCES post(id),
     FOREIGN KEY(user) REFERENCES user(id)
@@ -199,21 +199,10 @@ INSERT INTO post VALUES (
     1,
     'First post',
     1,
-    now(),
-    now(),
+    '2019-02-09 00:00:00',
+    '2019-02-09 00:00:00',
     'Notes',
     1,
-    0
-);
-
-INSERT INTO post VALUES (
-    2,
-    'First post',
-    2,
-    now(),
-    now(),
-    'Notes',
-    2,
     0
 );
 
