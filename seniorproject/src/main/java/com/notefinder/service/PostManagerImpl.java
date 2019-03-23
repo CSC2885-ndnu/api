@@ -2,7 +2,6 @@ package com.notefinder.service;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class PostManagerImpl implements PostManager {
 		return dao.delete(id);
 	}
 	
-	public Post getPostById(int id) {
+	public List<Post> getPostById(int id) {
 		return dao.getPostById(id);
 	}
 	
