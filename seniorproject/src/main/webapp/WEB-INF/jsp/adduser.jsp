@@ -16,10 +16,6 @@
                     <td colspan="2" align="center"><h2>Add User</h2></td>
                 </tr>
                 <tr>
-                    <td>ID:</td>
-                    <td><form:input  path="user_id" placeholder="int" /></td>
-                </tr>
-                <tr>
                     <td>First Name:</td>
                     <td><form:input path="firstName" /></td>
                 </tr>

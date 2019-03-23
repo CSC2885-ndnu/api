@@ -86,21 +86,22 @@ public class UserController {
     }
     
     // Get users by studentID
-    @RequestMapping(value = "/getUsers" , method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser" , method = RequestMethod.GET)
     public String viewGetUser(@ModelAttribute("userGetForm") StudentID studentID, Map<String, Object> model) {
         System.out.println(studentID);
          
         return "getUser";
     }
     
-    @RequestMapping(value = "/getUsers", method = RequestMethod.POST)    
+    @RequestMapping(value = "/getUser", method = RequestMethod.POST)    
     public String viewGetUser(@ModelAttribute("studentID") StudentID studentID, Model m) {    
         User list= manager.getUserById(studentID.getStudentID());   
         System.out.println(studentID.getStudentID());
         System.out.println(list);
         
        m.addAttribute("list",list);  
-        return "viewuser";    
+       
+        return "home";    
     }
 
 }
