@@ -54,8 +54,8 @@ public class Post {
         return classDate;
     }
 
-    public void setClassDate(Timestamp class_date) {
-        this.classDate = class_date;
+    public void setClassDate(Timestamp classDate) {
+        this.classDate = classDate;
     }
 
     public Timestamp getPostDate() {
@@ -96,7 +96,7 @@ public class Post {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", course=" + courseID +
-                ", class_date=" + classDate +
+                ", classDate=" + classDate +
                 ", postDate=" + postDate +
                 ", note='" + note + '\'' +
                 ", user=" + userID +
