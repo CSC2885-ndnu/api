@@ -67,9 +67,11 @@ public class CommentDaoImpl implements CommentDao {
 				Comment p = new Comment();
 				p.setId(rs.getInt(1));
 				PostDaoImpl postDao = new PostDaoImpl();
+				postDao.setTemplate(template);
 				p.setPost(postDao.getPostById(rs.getInt(2)));
-				UserDaoImpl userDao = new UserDaoImpl();
-				p.setUser(userDao.getUserById(rs.getInt(3)));
+				//UserDaoImpl userDao = new UserDaoImpl();
+				//userDao.setTemplate(template);
+				//p.setUser(userDao.getUserById(rs.getInt(3)));
 				p.setCreatedTS(rs.getTimestamp(4));
 				p.setModified(rs.getTimestamp(5));
 				p.setComment(rs.getString(6));
