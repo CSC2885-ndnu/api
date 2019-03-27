@@ -5,13 +5,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
-import org.springframework.web.bind.annotation.ModelAttribute;    
-import org.springframework.web.bind.annotation.PathVariable;    
+import org.springframework.web.bind.annotation.ModelAttribute;       
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.notefinder.dao.PostDao;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostID;
 import com.notefinder.service.PostManager;
@@ -43,7 +39,7 @@ public class PostController {
     @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     public String addPost(@ModelAttribute("postForm") Post post, Map<String, Object> model) {
     	System.out.println("IN POST addPost");
-    	int save = manager.save(post);
+    	manager.save(post);
     	System.out.println("IN POST addPost");
     	return "home";
     }
@@ -57,7 +53,7 @@ public class PostController {
     
     @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
     public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
-    	int update = manager.update(post);
+    	manager.update(post);
     	return "home";
     }
     
@@ -73,7 +69,7 @@ public class PostController {
     public String deletePost(@ModelAttribute("postDeleteForm") Post post,
             Map<String, Object> model) {
          
-    	int update = manager.delete(post.getId());
+    	manager.delete(post.getId());
          
         return "home";
     }
@@ -87,11 +83,11 @@ public class PostController {
     
     @RequestMapping(value = "/getPost", method = RequestMethod.POST)    
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
-        List<Post> list=manager.getPostById(postID.getPostID());   
+        Post p = manager.getPostById(postID.getPostID());   
         System.out.println(postID.getPostID());
-        System.out.println(list);
+        System.out.println(p);
         
-        m.addAttribute("list",list);  
+        m.addAttribute("list",p);  
         return "viewPost";    
     }
 }

@@ -19,11 +19,6 @@ public class UserController {
     @Autowired    
     UserManager manager;
     
-//    @RequestMapping("/home")    
-//    public String home(Model m){    
-//        return "home";    
-//    }
-    
     // View users in s list
     @RequestMapping("/viewuser")    
     public String viewuser(Model m){    
@@ -44,7 +39,7 @@ public class UserController {
     @RequestMapping(value = "/adduser" , method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
          
-    	int save = manager.save(user);
+    	manager.save(user);
     	
         return "home";
     }
@@ -62,7 +57,7 @@ public class UserController {
     public String updateUser(@ModelAttribute("userUpdateForm") User user,
             Map<String, Object> model) {
          
-    	int update = manager.update(user);
+    	manager.update(user);
          
         return "home";
     }
@@ -80,7 +75,7 @@ public class UserController {
     public String deleteUser(@ModelAttribute("userDeleteForm") User user,
             Map<String, Object> model) {
          
-    	int update = manager.delete(user.getStudentID());
+    	manager.delete(user.getStudentID());
          
         return "home";
     }

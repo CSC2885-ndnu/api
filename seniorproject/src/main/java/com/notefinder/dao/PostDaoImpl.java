@@ -2,11 +2,9 @@ package com.notefinder.dao;
 
 import java.sql.ResultSet;    
 import java.sql.SQLException;    
-import java.util.List;    
-import org.springframework.jdbc.core.BeanPropertyRowMapper;    
+import java.util.List;       
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
-
 import com.notefinder.models.Post;
 
  
@@ -23,8 +21,7 @@ public class PostDaoImpl implements PostDao
 		String sql = "insert into post(title,courseID,classDate,postDate,note,userID,flagged) values('" + p.getTitle() + "'," + p.getCourseID() + "," + p.getClassDate() + "," + p.getPostDate() + ",'" + p.getNote() + "'," + p.getUserID() + "," + p.isFlagged() + ")";
 		System.out.println(sql);
 		System.out.println(p);
-		return 1;
-//		return template.update(sql);
+		return template.update(sql);
 	}
 	
 	public int update(Post p) {
@@ -37,8 +34,8 @@ public class PostDaoImpl implements PostDao
 	    return template.update(sql);    
 	} 
 	
-	public List<Post> getPostById(int id){    
-		return template.query("select * from post where id=" + id, new RowMapper<Post>(){    
+	public Post getPostById(int id){    
+		List<Post> retValue =  template.query("select * from post where id=" + id, new RowMapper<Post>(){    
 	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
 	            Post p=new Post();    
 	            p.setId(rs.getInt(1));    
@@ -53,6 +50,7 @@ public class PostDaoImpl implements PostDao
 	        } 
 	        
 	    });
+		return retValue.get(0);
 	}
 	
 	public List<Post> getPosts(){    
