@@ -7,8 +7,8 @@
    <c:forEach var="comment" items="${list}">   
 	   <tr>  
 	   <td>${comment.id}</td>  
-	   <td>${comment.post.title}</td>  
-	   <td></td>  
+	   <td>${comment.postID}</td>  
+	   <td>${comment.userID}</td>  
 	   <td>${comment.createdTS}</td> 
 	   <td>${comment.modified}</td>  
 	   <td>${comment.comment}</td>   
@@ -16,3 +16,4 @@
 	   </tr>  
    </c:forEach>  
 </table>  
+<a href="addComment">Add Comment</a>

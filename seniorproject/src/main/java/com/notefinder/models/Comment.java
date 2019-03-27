@@ -1,14 +1,12 @@
 package com.notefinder.models;
 
 import java.sql.Timestamp;
-import com.notefinder.models.User;
-import com.notefinder.models.Post;
 
 public class Comment {
 
 	private int id;
-	private Post post;
-	private User user;
+	private int postID;
+	private int userID;
 	private Timestamp createdTS;
 	private Timestamp modified;
 	private String comment;
@@ -22,20 +20,20 @@ public class Comment {
 		this.id = id;
 	}
 
-	public Post getPost() {
-		return post;
+	public int getPostID() {
+		return postID;
 	}
 
-	public void setPost(Post post) {
-		this.post = post;
+	public void setPostID(int postID) {
+		this.postID = postID;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUserID() {
+		return userID;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 	public Timestamp getCreatedTS() {
