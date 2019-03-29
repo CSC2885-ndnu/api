@@ -174,7 +174,7 @@ INSERT INTO user VALUES (
     0,
     0,
     0,
-    '2019-02-09 00:00:00'
+    now()
 );
 INSERT INTO user VALUES (
     2,
@@ -187,7 +187,7 @@ INSERT INTO user VALUES (
     0,
     0,
     0,
-    '2019-02-09 00:00:00'
+    now()
 );
 
 INSERT INTO enrolled VALUES (
