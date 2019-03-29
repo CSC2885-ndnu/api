@@ -52,10 +52,6 @@
                     <td><form:input path="isLoggedIn" /></td>
                 </tr>
                 <tr>
-                    <td>Created Date (2019-02-09 00:00:00):</td>
-                    <td><form:input path="createdTS" /></td>
-                </tr>
-                <tr>
                     <td colspan="2" align="center"><input type="submit" value="Add to User Table" /></td>
                 </tr>
             </table>

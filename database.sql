@@ -34,7 +34,7 @@ CREATE TABLE user
     isAdmin BIT,
     flagged BIT,
     isLoggedIn BIT,
-    createdTS DATETIME, 
+    createdTS DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (id)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE post
     flagged BIT,
     PRIMARY KEY(id),
     FOREIGN KEY(courseID) REFERENCES course(id),
-    FOREIGN KEY(userID) REFERENCES user(id)
+    FOREIGN KEY(userID) REFERENCES user(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS comment;
@@ -68,14 +68,14 @@ CREATE TABLE comment
 (
     id INT NOT NULL AUTO_INCREMENT,
     postID INT,
-    user INT, 
+    userID INT, 
     createdTS DATETIME,
     modified DATETIME,
     comment VARCHAR(255),
     flagged BOOLEAN,
     PRIMARY KEY(id),
     FOREIGN KEY(postID) REFERENCES post(id),
-    FOREIGN KEY(user) REFERENCES user(id)
+    FOREIGN KEY(userID) REFERENCES user(id)
 );
 
 DROP TABLE IF EXISTS attachments;
@@ -174,7 +174,7 @@ INSERT INTO user VALUES (
     0,
     0,
     0,
-    '2019-02-09 00:00:00'
+    now()
 );
 INSERT INTO user VALUES (
     2,
@@ -187,7 +187,7 @@ INSERT INTO user VALUES (
     0,
     0,
     0,
-    '2019-02-09 00:00:00'
+    now()
 );
 
 INSERT INTO enrolled VALUES (
