@@ -44,5 +44,8 @@
 	</bean>
 	<bean id="daoUser" class="com.notefinder.dao.UserDaoImpl">    
 		<property name="template" ref="jt"></property>    
+	</bean> 
+	<bean id="daoCommentFlag" class="com.notefinder.dao.CommentFlagDaoImpl">    
+		<property name="template" ref="jt"></property>    
 	</bean>   
 </beans> 
