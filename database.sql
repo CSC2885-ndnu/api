@@ -68,7 +68,7 @@ CREATE TABLE comment
 (
     id INT NOT NULL AUTO_INCREMENT,
     postID INT,
-    user INT, 
+    userID INT, 
     createdTS DATETIME,
     modified DATETIME,
     comment VARCHAR(255),
