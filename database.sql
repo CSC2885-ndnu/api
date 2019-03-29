@@ -34,7 +34,7 @@ CREATE TABLE user
     isAdmin BIT,
     flagged BIT,
     isLoggedIn BIT,
-    createdTS DATETIME, 
+    createdTS DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (id)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE post
     flagged BIT,
     PRIMARY KEY(id),
     FOREIGN KEY(courseID) REFERENCES course(id),
-    FOREIGN KEY(userID) REFERENCES user(id)
+    FOREIGN KEY(userID) REFERENCES user(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS comment;
