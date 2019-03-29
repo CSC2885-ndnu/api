@@ -75,7 +75,7 @@ CREATE TABLE comment
     flagged BOOLEAN,
     PRIMARY KEY(id),
     FOREIGN KEY(postID) REFERENCES post(id),
-    FOREIGN KEY(user) REFERENCES user(id)
+    FOREIGN KEY(userID) REFERENCES user(id)
 );
 
 DROP TABLE IF EXISTS attachments;
