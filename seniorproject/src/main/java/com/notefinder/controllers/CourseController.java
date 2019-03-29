@@ -80,10 +80,7 @@ public class CourseController {
     @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
     public String viewgetCourse(@ModelAttribute("courseGetForm") CourseId course_id, Map<String, Object> model) {
         System.out.println(course_id);
-//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
-//        model.put("courseForm", courseForm );
-        
-        //int save = manager.save(courseForm);
+
          
         return "getCourse";
     }  

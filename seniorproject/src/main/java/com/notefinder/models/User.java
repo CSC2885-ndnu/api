@@ -17,20 +17,6 @@ public class User {
     private boolean isLoggedIn;
     private Timestamp createdTS;
 
-//    // Constructor
-//    public User(int user_id, String firstName, String lastName, int studentID, String email, String password, String avatar, boolean isAdmin, boolean flagged, boolean isLoggedIn, Timestamp createdTS) {
-//        this.user_id = user_id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.studentID = studentID;
-//        this.email = email;
-//        this.password = password;
-//        this.avatar = avatar;
-//        this.isAdmin = isAdmin;
-//        this.flagged = flagged;
-//        this.isLoggedIn = isLoggedIn;
-//        this.createdTS = createdTS;
-//    }
 
     // Getters & Setters
     public int getUser_id() {
