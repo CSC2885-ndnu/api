@@ -1,8 +1,22 @@
 # api
 Backend
-<<<<<<< HEAD
 =======
+Team Members and their tables:
+- Ahmed: User
+- Megan: Post
+- Naomi: Course + commentsFlag
+- Martin: Comments
+- Marc: Attachments
+- Nadege: post_flag
+- Jack:
 
-AhmedOT
-KamChung
->>>>>>> 7ab3695fac17adc8b0c16edac858fa04adc42bdb
+Tables needs to be built:
+- comment_rank
+- enrolled
+- post_rank                         
+
+Packages:
+- service: com.notefinder.service
+- controller: com.notefinder.controllers
+- model: com.notefinder.models
+- dao: com.notefinder.dao
