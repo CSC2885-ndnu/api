@@ -26,11 +26,8 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
 		<property name="url" value="jdbc:mysql://localhost:3306/senior_project_database"></property>    
 		<property name="username" value="root"></property>    
-<<<<<<< HEAD
-		<property name="password" value="Vanguard1"></property>    
-=======
-		<property name="password" value="00000000"></property>    
->>>>>>> 320a4c0b801dcfc2d19137405df79a41c8b003f9
+		<property name="password" value="Vanguard1"></property>
+		<property name="password" value="00000000"></property>
 	</bean>    
 	    
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    

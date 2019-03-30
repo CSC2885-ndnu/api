@@ -24,15 +24,10 @@ public class CourseController {
         m.addAttribute("list",list);  
         return "courses";    
     }
-    
-<<<<<<< HEAD
     @RequestMapping("/home2")    
     public String home(Model m){    
         return "home";    
     }
-    
-=======
->>>>>>> 320a4c0b801dcfc2d19137405df79a41c8b003f9
     
     @RequestMapping(value = "/addCourse" , method = RequestMethod.GET)
     public String viewAddCourse(@ModelAttribute("courseForm") Course course, Map<String, Object> model) {
