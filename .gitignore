@@ -23,12 +23,6 @@
 hs_err_pid*
 /.metadata/
 
-# DS_Store
-*.DS_Store
-**/.DS_Store
-**/._.DS_Store
-._.DS_Store
-
 # generated files #
 seniorproject/target/
 Servers/

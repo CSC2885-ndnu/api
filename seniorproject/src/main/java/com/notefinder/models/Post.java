@@ -9,6 +9,7 @@ public class Post {
     private int id;
     private String title;
     private int courseID;
+    private Timestamp classDate;
     private Timestamp postDate;
     private String note;
     private int userID;
@@ -49,6 +50,14 @@ public class Post {
         this.courseID = courseID;
     }
 
+    public Timestamp getClassDate() {
+        return classDate;
+    }
+
+    public void setClassDate(Timestamp classDate) {
+        this.classDate = classDate;
+    }
+
     public Timestamp getPostDate() {
         return postDate;
     }
@@ -87,6 +96,7 @@ public class Post {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", course=" + courseID +
+                ", classDate=" + classDate +
                 ", postDate=" + postDate +
                 ", note='" + note + '\'' +
                 ", user=" + userID +
