@@ -45,30 +45,21 @@ public class PostController {
     	return "home";
     }
     
-//    @RequestMapping(value = "/updatePost", method = RequestMethod.GET)
-//    public String viewupdatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
-//    	Post postForm = new Post();
-//    	model.put("postForm", postForm);
-//    	return "updatePost";
-//    }
-//    
-//    @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
-//    public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
-//    	int update = manager.update(post);
-//    	return "home";
-//    }
-    
-    @RequestMapping(value="/editPost/{id}")
-    public String edit(@PathVariable int id, Model m) {
-    	Post post=manager.getPostById(id);
-    	m.addAttribute("command", post);
-    	return "editPostForm";
+    @RequestMapping(value = "/updatePost", method = RequestMethod.GET)
+    public String viewupdatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
+    	Post postForm = new Post();
+    	model.put("postForm", postForm);
+    	return "updatePost";
     }
+<<<<<<< HEAD
     @RequestMapping(value="/editSave", method=RequestMethod.POST)
     public String editsave(@ModelAttribute("post") Post post) {
     	manager.update(post);
     	return "redirect:/posts";
     }
+=======
+    
+>>>>>>> 3ad0e08d0f88956cd9b62551dd798e1938f74259
     @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
     public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
     	manager.update(post);
@@ -94,14 +85,22 @@ public class PostController {
     
     @RequestMapping(value = "/getPost" , method = RequestMethod.GET)
     public String viewgetPost(@ModelAttribute("postGetForm") PostID postID, Map<String, Object> model) {
+        System.out.println(postID);
+         
         return "getPost";
     }
     
     @RequestMapping(value = "/getPost", method = RequestMethod.POST)    
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
+<<<<<<< HEAD
         Post post=manager.getPostById(postID.getPostID());
         m.addAttribute("post", post);
         Post p = manager.getPostById(postID.getPostID());
+=======
+        Post p = manager.getPostById(postID.getPostID());   
+        System.out.println(postID.getPostID());
+        System.out.println(p);
+>>>>>>> 3ad0e08d0f88956cd9b62551dd798e1938f74259
         
         m.addAttribute("list",p);  
         return "viewPost";    

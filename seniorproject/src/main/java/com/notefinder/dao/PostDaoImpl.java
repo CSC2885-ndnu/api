@@ -19,12 +19,19 @@ public class PostDaoImpl implements PostDao
 	}
 	
 	public int save(Post p) {
+<<<<<<< HEAD
 		String sql = "insert into post(title,courseID,postDate,note,userID,flagged) values('" + p.getTitle() + "'," + p.getCourseID() + ", now(), '" + p.getNote() + "'," + p.getUserID() + "," + p.isFlagged() + ")";
+=======
+		System.out.println(p);
+		String sql = "insert into post(title,courseID,classDate,postDate,note,userID,flagged) values('" + p.getTitle() + "'," + p.getCourseID() + "," + p.getClassDate() + "," + p.getPostDate() + ",'" + p.getNote() + "'," + p.getUserID() + "," + p.isFlagged() + ")";
+		System.out.println(sql);
+		System.out.println(p);
+>>>>>>> 3ad0e08d0f88956cd9b62551dd798e1938f74259
 		return template.update(sql);
 	}
 	
 	public int update(Post p) {
-		String sql = "update post set id=" + p.getId() + ", title='" + p.getTitle() + "', courseID=" + p.getCourseID() + ", postDate=now()" + ", note='" + p.getNote() + "', userID=" + p.getUserID() + ", flagged=" + p.isFlagged() + " where id=" + p.getId()+"";
+		String sql = "update post set id=" + p.getId() + ", title='" + p.getTitle() + "', courseID=" + p.getCourseID() + ", classDate=" + p.getClassDate() + ", postDate=" + p.getPostDate() + ", note='" + p.getNote() + "', userID=" + p.getUserID() + ", flagged=" + p.isFlagged() + " where id=" + p.getId()+"";
 		return template.update(sql);
 	}
 	
@@ -33,6 +40,7 @@ public class PostDaoImpl implements PostDao
 	    return template.update(sql);    
 	} 
 	
+<<<<<<< HEAD
 	public Post getPostById(int id){ 
 		String sql="select * from post where id=?";
 		return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<Post>(Post.class));
@@ -69,6 +77,26 @@ public class PostDaoImpl implements PostDao
 //	    });
 //		return retValue.get(0);
 //	}
+=======
+	public Post getPostById(int id){    
+		List<Post> retValue =  template.query("select * from post where id=" + id, new RowMapper<Post>(){    
+	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
+	            Post p=new Post();    
+	            p.setId(rs.getInt(1));    
+	            p.setTitle(rs.getString(2));    
+	            p.setCourseID(rs.getInt(3));    
+	            p.setClassDate(rs.getTimestamp(4));  
+	            p.setPostDate(rs.getTimestamp(5));
+	            p.setNote(rs.getString(6));
+	            p.setUserID(rs.getInt(7));
+	            p.setFlagged(rs.getBoolean(8));
+	            return p;    
+	        } 
+	        
+	    });
+		return retValue.get(0);
+	}
+>>>>>>> 3ad0e08d0f88956cd9b62551dd798e1938f74259
 	
 	public List<Post> getPosts(){    
 	    return template.query("select * from post",new RowMapper<Post>(){    
@@ -76,11 +104,12 @@ public class PostDaoImpl implements PostDao
 	            Post p=new Post();    
 	            p.setId(rs.getInt(1));    
 	            p.setTitle(rs.getString(2));    
-	            p.setCourseID(rs.getInt(3));  
-	            p.setPostDate(rs.getTimestamp(4));
-	            p.setNote(rs.getString(5));
-	            p.setUserID(rs.getInt(6));
-	            p.setFlagged(rs.getBoolean(7));
+	            p.setCourseID(rs.getInt(3));    
+	            p.setClassDate(rs.getTimestamp(4));  
+	            p.setPostDate(rs.getTimestamp(5));
+	            p.setNote(rs.getString(6));
+	            p.setUserID(rs.getInt(7));
+	            p.setFlagged(rs.getBoolean(8));
 	            return p;    
 	        }    
 	    });    
