@@ -26,10 +26,15 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
 		<property name="url" value="jdbc:mysql://localhost:3306/senior_project_database"></property>    
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<property name="username" value="root"></property>
 		<property name="password" value="Vanguard1"></property>
 		<property name="password" value="00000000"></property>
 		<property name="password" value="00000000"></property> 
+=======
+		<property name="username" value="root"></property>    
+		<property name="password" value="Vanguard1"></property>    
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 		<property name="username" value="root"></property>    
 		<property name="password" value="Vanguard1"></property>    

@@ -33,7 +33,10 @@ public class CourseController {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
     
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
     @RequestMapping(value = "/addCourse" , method = RequestMethod.GET)

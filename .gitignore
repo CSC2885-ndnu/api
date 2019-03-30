@@ -28,9 +28,12 @@ seniorproject/target/
 Servers/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 seniorproject/src/main/webapp/WEB-INF/seniorproject-servlet.xml
 seniorproject/target/m2e-wtp/web-resources/META-INF/maven/edu.ndnu/webstore/pom.properties
 seniorproject/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+=======
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======

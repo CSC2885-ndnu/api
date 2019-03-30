@@ -6,8 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+=======
+import org.springframework.web.bind.annotation.ModelAttribute;    
+import org.springframework.web.bind.annotation.PathVariable;    
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 import org.springframework.web.bind.annotation.ModelAttribute;    
 import org.springframework.web.bind.annotation.PathVariable;    
@@ -60,6 +65,10 @@ public class PostController {
     	return "updatePost";
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
     
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
@@ -68,11 +77,14 @@ public class PostController {
     	manager.update(post);
     	return "redirect:/posts";
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
     @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
     public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
     	manager.update(post);
     	return "home";
+=======
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
     }
@@ -105,7 +117,12 @@ public class PostController {
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
         Post post=manager.getPostById(postID.getPostID());
 <<<<<<< HEAD
+<<<<<<< HEAD
         m.addAttribute("post", post);
+=======
+        
+        m.addAttribute("post", post);  
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
         
         m.addAttribute("post", post);  
