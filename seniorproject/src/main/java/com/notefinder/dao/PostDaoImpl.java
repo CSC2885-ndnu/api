@@ -24,7 +24,7 @@ public class PostDaoImpl implements PostDao
 	}
 	
 	public int update(Post p) {
-		String sql = "update post set id=" + p.getId() + ", title='" + p.getTitle() + "', courseID=" + p.getCourseID() + ", classDate=" + p.getClassDate() + ", postDate=" + p.getPostDate() + ", note='" + p.getNote() + "', userID=" + p.getUserID() + ", flagged=" + p.isFlagged() + " where id=" + p.getId()+"";
+		String sql = "update post set id=" + p.getId() + ", title='" + p.getTitle() + "', courseID=" + p.getCourseID() + ", postDate=now()" + ", note='" + p.getNote() + "', userID=" + p.getUserID() + ", flagged=" + p.isFlagged() + " where id=" + p.getId()+"";
 		return template.update(sql);
 	}
 	
@@ -37,38 +37,6 @@ public class PostDaoImpl implements PostDao
 		String sql="select * from post where id=?";
 		return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<Post>(Post.class));
 	}
-		//return template.query("select * from post where id=" 
-	//+ id, new RowMapper<Post>(){    
-//	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
-//	            Post p=new Post();    
-//	            p.setId(rs.getInt(1));    
-//	            p.setTitle(rs.getString(2));    
-//	            p.setCourseID(rs.getInt(3));    
-//	            p.setClassDate(rs.getTimestamp(4));  
-//	            p.setPostDate(rs.getTimestamp(5));
-//	            p.setNote(rs.getString(6));
-//	            p.setUserID(rs.getInt(7));
-//	            p.setFlagged(rs.getBoolean(8));
-//	            return p;    
-//	        } 
-//	        
-//	    });
-//		List<Post> retValue =  template.query("select * from post where id=" + id, new RowMapper<Post>(){    
-//	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
-//	            Post p=new Post();    
-//	            p.setId(rs.getInt(1));    
-//	            p.setTitle(rs.getString(2));    
-//	            p.setCourseID(rs.getInt(3));  
-//	            p.setPostDate(rs.getTimestamp(4));
-//	            p.setNote(rs.getString(5));
-//	            p.setUserID(rs.getInt(6));
-//	            p.setFlagged(rs.getBoolean(7));
-//	            return p;    
-//	        } 
-//	        
-//	    });
-//		return retValue.get(0);
-//	}
 	
 	public List<Post> getPosts(){    
 	    return template.query("select * from post",new RowMapper<Post>(){    
@@ -76,12 +44,11 @@ public class PostDaoImpl implements PostDao
 	            Post p=new Post();    
 	            p.setId(rs.getInt(1));    
 	            p.setTitle(rs.getString(2));    
-	            p.setCourseID(rs.getInt(3));    
-	            p.setClassDate(rs.getTimestamp(4));  
-	            p.setPostDate(rs.getTimestamp(5));
-	            p.setNote(rs.getString(6));
-	            p.setUserID(rs.getInt(7));
-	            p.setFlagged(rs.getBoolean(8));
+	            p.setCourseID(rs.getInt(3));  
+	            p.setPostDate(rs.getTimestamp(4));
+	            p.setNote(rs.getString(5));
+	            p.setUserID(rs.getInt(6));
+	            p.setFlagged(rs.getBoolean(7));
 	            return p;    
 	        }    
 	    });    

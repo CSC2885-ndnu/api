@@ -9,22 +9,10 @@ public class Post {
     private int id;
     private String title;
     private int courseID;
-    private Timestamp classDate;
     private Timestamp postDate;
     private String note;
     private int userID;
     private boolean flagged;
-
-//    public Post(int post_id, String title, Course course, Timestamp class_date, Timestamp postDate, String note, User user, boolean flagged) {
-//        this.post_id = post_id;
-//        this.title = title;
-//        this.course = course;
-//        this.class_date = class_date;
-//        this.post_date = postDate;
-//        this.note = note;
-//        this.user = user;
-//        this.flagged = flagged;
-//    }
 
     public int getId() {
         return id;
@@ -48,14 +36,6 @@ public class Post {
 
     public void setCourseID(int courseID) {
         this.courseID = courseID;
-    }
-
-    public Timestamp getClassDate() {
-        return classDate;
-    }
-
-    public void setClassDate(Timestamp classDate) {
-        this.classDate = classDate;
     }
 
     public Timestamp getPostDate() {
@@ -96,7 +76,6 @@ public class Post {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", course=" + courseID +
-                ", classDate=" + classDate +
                 ", postDate=" + postDate +
                 ", note='" + note + '\'' +
                 ", user=" + userID +
