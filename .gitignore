@@ -32,3 +32,5 @@ hs_err_pid*
 # generated files #
 seniorproject/target/
 Servers/
+seniorproject/src/main/webapp/WEB-INF/seniorproject-servlet.xml
+seniorproject/target/m2e-wtp/web-resources/META-INF/maven/edu.ndnu/webstore/pom.properties

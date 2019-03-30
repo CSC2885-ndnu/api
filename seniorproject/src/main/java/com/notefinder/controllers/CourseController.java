@@ -4,12 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
-import org.springframework.web.bind.annotation.ModelAttribute;    
-import org.springframework.web.bind.annotation.PathVariable;    
+import org.springframework.web.bind.annotation.ModelAttribute;   
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.notefinder.dao.CourseDao;
 import com.notefinder.models.Course; 
 import com.notefinder.models.CourseId;
 import com.notefinder.service.CourseManager;
@@ -27,27 +25,28 @@ public class CourseController {
         return "courses";    
     }
     
+<<<<<<< HEAD
     @RequestMapping("/home2")    
     public String home(Model m){    
         return "home";    
     }
     
+=======
+>>>>>>> 320a4c0b801dcfc2d19137405df79a41c8b003f9
     
     @RequestMapping(value = "/addCourse" , method = RequestMethod.GET)
     public String viewAddCourse(@ModelAttribute("courseForm") Course course, Map<String, Object> model) {
         Course courseForm = new Course();    
         model.put("courseForm", courseForm);
-        
-        //int save = manager.save(courseForm);
          
         return "addCourse";
     }
     
-    @RequestMapping(value = "/addCourse" , method = RequestMethod.POST)
+	@RequestMapping(value = "/addCourse" , method = RequestMethod.POST)
     public String addCourse(@ModelAttribute("courseForm") Course course,
             Map<String, Object> model) {
          
-    	int save = manager.save(course);
+    	manager.save(course);
          
         return "home";
     }
@@ -56,8 +55,6 @@ public class CourseController {
     public String viewupdateCourse(@ModelAttribute("courseUpdateForm") Course course, Map<String, Object> model) {
         Course courseForm = new Course();    
         model.put("courseForm", courseForm);
-        
-        //int save = manager.save(courseForm);
          
         return "updateCourse";
     }
@@ -66,7 +63,7 @@ public class CourseController {
     public String updateCourse(@ModelAttribute("courseUpdateForm") Course course,
             Map<String, Object> model) {
          
-    	int update = manager.update(course);
+    	manager.update(course);
          
         return "home";
     }
@@ -75,8 +72,6 @@ public class CourseController {
     public String viewdeleteCourse(@ModelAttribute("courseDeleteForm") Course course, Map<String, Object> model) {
         Course courseForm = new Course();    
         model.put("courseForm", courseForm);
-        
-        //int save = manager.save(courseForm);
          
         return "deleteCourse";
     }
@@ -85,7 +80,7 @@ public class CourseController {
     public String deleteCourse(@ModelAttribute("courseDeleteForm") Course course,
             Map<String, Object> model) {
          
-    	int update = manager.delete(course.getCourse_id());
+    	manager.delete(course.getCourse_id());
          
         return "home";
     }
@@ -93,10 +88,7 @@ public class CourseController {
     @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
     public String viewgetCourse(@ModelAttribute("courseGetForm") CourseId course_id, Map<String, Object> model) {
         System.out.println(course_id);
-//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
-//        model.put("courseForm", courseForm );
-        
-        //int save = manager.save(courseForm);
+
          
         return "getCourse";
     }  

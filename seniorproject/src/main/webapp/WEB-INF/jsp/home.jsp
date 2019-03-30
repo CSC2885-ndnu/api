@@ -18,3 +18,14 @@
  <a href="updateUser">Update User</a>
  <a href="deleteUser">Delete Users</a>
  <a href="getUser">Get User By ID</a>
+ 
+        <br>
+ <a href="viewcomment">View Comments</a>
+ <a href="addComment">Add Comment</a>
+ <a href="updateUser">Update User</a>
+ <a href="deleteUser">Delete Users</a>
+ <a href="getUser">Get User By ID</a>
+ 
+ <br>
+<a href="viewCommentFlags">View Comment Flags</a>
+<a href="addCommentFlag">Add Comment Flag</a>

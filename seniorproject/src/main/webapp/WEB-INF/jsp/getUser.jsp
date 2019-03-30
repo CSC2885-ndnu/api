@@ -10,7 +10,7 @@
 </head>
 <body>
     <div align="center">
-        <form:form action="getUsers" method="post" commandName="userGetForm" modelAttribute="userGetForm">
+        <form:form action="getUser" method="post" commandName="userGetForm" modelAttribute="userGetForm">
             <table border="0">
                 <tr>
                     <td colspan="2" align="center"><h2>Get User by studentID:</h2></td>

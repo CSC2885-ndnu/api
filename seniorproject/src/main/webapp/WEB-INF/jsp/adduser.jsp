@@ -16,10 +16,6 @@
                     <td colspan="2" align="center"><h2>Add User</h2></td>
                 </tr>
                 <tr>
-                    <td>ID:</td>
-                    <td><form:input  path="user_id" placeholder="int" /></td>
-                </tr>
-                <tr>
                     <td>First Name:</td>
                     <td><form:input path="firstName" /></td>
                 </tr>
@@ -54,10 +50,6 @@
                 <tr>
                     <td>isLoggedIn (0,1):</td>
                     <td><form:input path="isLoggedIn" /></td>
-                </tr>
-                <tr>
-                    <td>Created Date (2019-02-09 00:00:00):</td>
-                    <td><form:input path="createdTS" /></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center"><input type="submit" value="Add to User Table" /></td>

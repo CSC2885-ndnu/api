@@ -55,10 +55,7 @@
                     <td>isLoggedIn (0,1):</td>
                     <td><form:input path="isLoggedIn" /></td>
                 </tr>
-                <tr>
-                    <td>Created Date ():</td>
-                    <td><form:input path="createdTS" /></td>
-                </tr>
+
                 <tr>
                     <td colspan="2" align="center"><input type="submit" value="Update User in Database" /></td>
                 </tr>
