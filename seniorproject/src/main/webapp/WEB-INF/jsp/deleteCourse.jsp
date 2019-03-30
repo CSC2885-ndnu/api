@@ -6,22 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Get User by studentID!</title>
+<title>Delete row from course!</title>
 </head>
 <body>
     <div align="center">
-        <form:form action="getUser" method="post" commandName="userGetForm" modelAttribute="userGetForm">
+        <form:form action="deleteCourse" method="post" commandName="courseDeleteForm">
             <table border="0">
                 <tr>
-                    <td colspan="2" align="center"><h2>Get User by studentID:</h2></td>
+                    <td colspan="2" align="center"><h2>Delete Course</h2></td>
                 </tr>
                 <tr>
-                    <td>Enter ID of Row to retrieve:</td>
-                    <td><form:input  path="studentID" placeholder="int" name="studentID" /></td>
+                    <td>Enter ID of Row to delete:</td>
+                    <td><form:input  path="course_id" placeholder="int" /></td>
                 </tr>
                 
                 <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Retrieve studentID from User Table" /></td>
+                    <td colspan="2" align="center"><input type="submit" value="Delete id from Course Table" /></td>
                 </tr>
             </table>
         </form:form>

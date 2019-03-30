@@ -5,23 +5,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
-<<<<<<< HEAD
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-=======
-import org.springframework.web.bind.annotation.ModelAttribute;    
-import org.springframework.web.bind.annotation.PathVariable;    
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
-=======
-import org.springframework.web.bind.annotation.ModelAttribute;    
-import org.springframework.web.bind.annotation.PathVariable;    
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
+import org.springframework.web.bind.annotation.ModelAttribute;       
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.notefinder.dao.PostDao;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostID;
 import com.notefinder.service.PostManager;
@@ -30,11 +16,11 @@ public class PostController {
     @Autowired    
     PostManager manager;
     
-    @RequestMapping("/posts")
+    @RequestMapping("/viewpost")
     public String viewpost(Model m) {
     	List<Post> list=manager.getPosts();
     	m.addAttribute("list", list);
-    	return "posts";
+    	return "viewpost";
     }
     
     @RequestMapping("/home")
@@ -53,7 +39,7 @@ public class PostController {
     @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     public String addPost(@ModelAttribute("postForm") Post post, Map<String, Object> model) {
     	System.out.println("IN POST addPost");
-    	int save = manager.save(post);
+    	manager.save(post);
     	System.out.println("IN POST addPost");
     	return "home";
     }
@@ -64,29 +50,11 @@ public class PostController {
     	model.put("postForm", postForm);
     	return "updatePost";
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
-=======
-    
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
-    @RequestMapping(value="/editSave", method=RequestMethod.POST)
-    public String editsave(@ModelAttribute("post") Post post) {
-    	manager.update(post);
-    	return "redirect:/posts";
-<<<<<<< HEAD
-<<<<<<< HEAD
-    }
     @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
     public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
     	manager.update(post);
     	return "home";
-=======
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
-=======
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
     }
     
     @RequestMapping(value = "/deletePost" , method = RequestMethod.GET)
@@ -101,7 +69,7 @@ public class PostController {
     public String deletePost(@ModelAttribute("postDeleteForm") Post post,
             Map<String, Object> model) {
          
-    	int update = manager.delete(post.getId());
+    	manager.delete(post.getId());
          
         return "home";
     }
@@ -115,18 +83,11 @@ public class PostController {
     
     @RequestMapping(value = "/getPost", method = RequestMethod.POST)    
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
-        Post post=manager.getPostById(postID.getPostID());
-<<<<<<< HEAD
-<<<<<<< HEAD
-        m.addAttribute("post", post);
-=======
+        Post p = manager.getPostById(postID.getPostID());   
+        System.out.println(postID.getPostID());
+        System.out.println(p);
         
-        m.addAttribute("post", post);  
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
-=======
-        
-        m.addAttribute("post", post);  
->>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
+        m.addAttribute("list",p);  
         return "viewPost";    
     }
 }

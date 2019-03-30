@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DROP DATABASE IF EXISTS senior_project_database;
 
 CREATE DATABASE IF NOT EXISTS senior_project_database;
@@ -257,6 +258,8 @@ INSERT INTO comment_rank VALUES (
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
+=======
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 DROP DATABASE IF EXISTS senior_project_database;
 
 CREATE DATABASE IF NOT EXISTS senior_project_database;
@@ -508,6 +511,9 @@ INSERT INTO comment_rank VALUES (
     1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
+=======
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
 =======
 >>>>>>> parent of 8a09f90... add and edit post working, classDate variable removed
