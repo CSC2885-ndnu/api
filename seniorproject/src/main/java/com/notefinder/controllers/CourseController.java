@@ -27,7 +27,7 @@ public class CourseController {
         return "courses";    
     }
     
-    @RequestMapping("/home")    
+    @RequestMapping("/home2")    
     public String home(Model m){    
         return "home";    
     }

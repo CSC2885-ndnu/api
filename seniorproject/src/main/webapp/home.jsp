@@ -3,7 +3,6 @@
  
  <a href="posts">View Post</a>
  <a href="addPost">Add Post</a>
- <a href="editPost">Edit Post</a>
  <a href="deletePost">Delete Post</a>
  <a href="getPost">Get Post By ID</a>
  <br> 

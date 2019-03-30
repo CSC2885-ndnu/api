@@ -26,7 +26,7 @@ public class PostManagerImpl implements PostManager {
 		return dao.delete(id);
 	}
 	
-	public List<Post> getPostById(int id) {
+	public Post getPostById(int id) {
 		return dao.getPostById(id);
 	}
 	

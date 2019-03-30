@@ -53,7 +53,6 @@ CREATE TABLE post
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255),
     courseID INT,
-    classDate DATETIME,
     postDate DATETIME,
     note TEXT(65535),
     userID INT,
@@ -199,8 +198,7 @@ INSERT INTO post VALUES (
     1,
     'First post',
     1,
-    '2019-02-09 00:00:00',
-    '2019-02-09 00:00:00',
+    now(),
     'Notes',
     1,
     0

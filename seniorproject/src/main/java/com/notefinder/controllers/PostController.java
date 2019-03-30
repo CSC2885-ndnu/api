@@ -48,17 +48,30 @@ public class PostController {
     	return "home";
     }
     
-    @RequestMapping(value = "/updatePost", method = RequestMethod.GET)
-    public String viewupdatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
-    	Post postForm = new Post();
-    	model.put("postForm", postForm);
-    	return "updatePost";
+//    @RequestMapping(value = "/updatePost", method = RequestMethod.GET)
+//    public String viewupdatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
+//    	Post postForm = new Post();
+//    	model.put("postForm", postForm);
+//    	return "updatePost";
+//    }
+//    
+//    @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
+//    public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
+//    	int update = manager.update(post);
+//    	return "home";
+//    }
+    
+    @RequestMapping(value="/editPost/{id}")
+    public String edit(@PathVariable int id, Model m) {
+    	Post post=manager.getPostById(id);
+    	m.addAttribute("command", post);
+    	return "editPostForm";
     }
     
-    @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
-    public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
-    	int update = manager.update(post);
-    	return "home";
+    @RequestMapping(value="/editSave", method=RequestMethod.POST)
+    public String editsave(@ModelAttribute("post") Post post) {
+    	manager.update(post);
+    	return "redirect:/posts";
     }
     
     @RequestMapping(value = "/deletePost" , method = RequestMethod.GET)
@@ -80,18 +93,14 @@ public class PostController {
     
     @RequestMapping(value = "/getPost" , method = RequestMethod.GET)
     public String viewgetPost(@ModelAttribute("postGetForm") PostID postID, Map<String, Object> model) {
-        System.out.println(postID);
-         
         return "getPost";
     }
     
     @RequestMapping(value = "/getPost", method = RequestMethod.POST)    
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
-        List<Post> list=manager.getPostById(postID.getPostID());   
-        System.out.println(postID.getPostID());
-        System.out.println(list);
+        Post post=manager.getPostById(postID.getPostID());
         
-        m.addAttribute("list",list);  
+        m.addAttribute("post", post);  
         return "viewPost";    
     }
 }
