@@ -19,7 +19,7 @@ public class UserController {
     @Autowired    
     UserManager manager;
     
-    // View users in a list
+    // View users in s list
     @RequestMapping("/viewuser")    
     public String viewuser(Model m){    
         List<User> list=manager.getUser();    
@@ -27,18 +27,21 @@ public class UserController {
         return "viewuser";    
     } 
 	
-    // Adding Users
+    // Addding Users
     @RequestMapping(value = "/adduser" , method = RequestMethod.GET)
     public String viewAddUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
     	User userForm = new User();    
         model.put("userForm", userForm);
+
         return "adduser";
     }
     
     @RequestMapping(value = "/adduser" , method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
+         
     	manager.save(user);
-        return "redirect:/viewuser";
+    	
+        return "home";
     }
     
     // Update users
@@ -46,15 +49,17 @@ public class UserController {
     public String viewupdateUser(@ModelAttribute("userUpdateForm") User user, Map<String, Object> model) {
     	User userForm = new User();    
         model.put("userForm", userForm);
+                 
         return "updateUser";
     }
     
     @RequestMapping(value = "/updateUser" , method = RequestMethod.POST)
-    public String updateUser(@ModelAttribute("userUpdateForm") User user,Map<String, Object> model) {
+    public String updateUser(@ModelAttribute("userUpdateForm") User user,
+            Map<String, Object> model) {
          
     	manager.update(user);
          
-        return "redirect:/viewuser";
+        return "home";
     }
     
     // Delete Users
@@ -66,14 +71,14 @@ public class UserController {
         return "deleteUser";
     }
     
-//    @RequestMapping(value = "/deleteUser" , method = RequestMethod.POST)
-//    public String deleteUser(@ModelAttribute("userDeleteForm") User user,
-//            Map<String, Object> model) {
-//         
-//    	manager.delete(user.getStudentID());
-//         
-//        return "home";
-//    }
+    @RequestMapping(value = "/deleteUser" , method = RequestMethod.POST)
+    public String deleteUser(@ModelAttribute("userDeleteForm") User user,
+            Map<String, Object> model) {
+         
+    	manager.delete(user.getStudentID());
+         
+        return "home";
+    }
     
     // Get users by studentID
     @RequestMapping(value = "/getUser" , method = RequestMethod.GET)

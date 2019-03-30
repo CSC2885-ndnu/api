@@ -2,9 +2,7 @@ package com.notefinder.dao;
 
 import java.sql.ResultSet;    
 import java.sql.SQLException;    
-import java.util.List;
-
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import java.util.List;       
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.Post;
@@ -19,7 +17,10 @@ public class PostDaoImpl implements PostDao
 	}
 	
 	public int save(Post p) {
-		String sql = "insert into post(title,courseID,postDate,note,userID,flagged) values('" + p.getTitle() + "'," + p.getCourseID() + ", now(), '" + p.getNote() + "'," + p.getUserID() + "," + p.isFlagged() + ")";
+		System.out.println(p);
+		String sql = "insert into post(title,courseID,classDate,postDate,note,userID,flagged) values('" + p.getTitle() + "'," + p.getCourseID() + "," + p.getClassDate() + "," + p.getPostDate() + ",'" + p.getNote() + "'," + p.getUserID() + "," + p.isFlagged() + ")";
+		System.out.println(sql);
+		System.out.println(p);
 		return template.update(sql);
 	}
 	
@@ -33,9 +34,23 @@ public class PostDaoImpl implements PostDao
 	    return template.update(sql);    
 	} 
 	
-	public Post getPostById(int id){ 
-		String sql="select * from post where id=?";
-		return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<Post>(Post.class));
+	public Post getPostById(int id){    
+		List<Post> retValue =  template.query("select * from post where id=" + id, new RowMapper<Post>(){    
+	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
+	            Post p=new Post();    
+	            p.setId(rs.getInt(1));    
+	            p.setTitle(rs.getString(2));    
+	            p.setCourseID(rs.getInt(3));    
+	            p.setClassDate(rs.getTimestamp(4));  
+	            p.setPostDate(rs.getTimestamp(5));
+	            p.setNote(rs.getString(6));
+	            p.setUserID(rs.getInt(7));
+	            p.setFlagged(rs.getBoolean(8));
+	            return p;    
+	        } 
+	        
+	    });
+		return retValue.get(0);
 	}
 	
 	public List<Post> getPosts(){    

@@ -19,6 +19,20 @@ public class Course {
     private String professor;
     private String link;
 
+    // Constructor
+//    public Course(int course_id, int courseCode, String department, String courseName, String courseDescription, int section, String courseSyllabus, int semester, int year, String professor, String link) {
+//        this.course_id = course_id;
+//        this.courseCode = courseCode;
+//        this.department = department;
+//        this.courseName = courseName;
+//        this.courseDescription = courseDescription;
+//        this.section = section;
+//        this.courseSyllabus = courseSyllabus;
+//        this.semesterID = semester;
+//        this.year = year;
+//        this.professor = professor;
+//        this.link = link;
+//    }
 
     // Getters & Setters
     public int getCourse_id() {

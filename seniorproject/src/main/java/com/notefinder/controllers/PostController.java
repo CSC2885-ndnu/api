@@ -5,8 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;       
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.notefinder.models.Post;
@@ -17,11 +16,11 @@ public class PostController {
     @Autowired    
     PostManager manager;
     
-    @RequestMapping("/posts")
+    @RequestMapping("/viewpost")
     public String viewpost(Model m) {
     	List<Post> list=manager.getPosts();
     	m.addAttribute("list", list);
-    	return "posts";
+    	return "viewpost";
     }
     
     @RequestMapping("/home")
@@ -52,10 +51,17 @@ public class PostController {
     	return "editPostForm";
     }
     
+<<<<<<< HEAD
     @RequestMapping(value="/editSave", method=RequestMethod.POST)
     public String editsave(@ModelAttribute("post") Post post) {
     	manager.update(post);
     	return "redirect:/posts";
+=======
+    @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
+    public String updatePost(@ModelAttribute("postUpdateForm") Post post, Map<String, Object> model) {
+    	manager.update(post);
+    	return "home";
+>>>>>>> 962210b9ed04eedec7fedd569345fcc3eb43e1e7
     }
     
     @RequestMapping(value = "/deletePost" , method = RequestMethod.GET)
@@ -82,8 +88,11 @@ public class PostController {
     
     @RequestMapping(value = "/getPost", method = RequestMethod.POST)    
     public String viewGetPost(@ModelAttribute("postID") PostID postID, Model m) {    
-        Post post=manager.getPostById(postID.getPostID());
-        m.addAttribute("post", post);
+        Post p = manager.getPostById(postID.getPostID());   
+        System.out.println(postID.getPostID());
+        System.out.println(p);
+        
+        m.addAttribute("list",p);  
         return "viewPost";    
     }
 }

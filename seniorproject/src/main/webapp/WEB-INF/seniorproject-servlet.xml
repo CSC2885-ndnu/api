@@ -24,9 +24,15 @@
     
 	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">    
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
+<<<<<<< HEAD
 		<property name="url" value="jdbc:mysql://localhost:3306/senior_project_database"></property>    
 		<property name="username" value="root"></property>
 		<property name="password" value="Vanguard1"></property>
+=======
+		<property name="url" value="jdbc:mysql://localhost:3306/senior_project_database?useSSL=false"></property>    
+		<property name="username" value="root"></property>    
+		<property name="password" value="turb0night"></property>    
+>>>>>>> 962210b9ed04eedec7fedd569345fcc3eb43e1e7
 	</bean>    
 	    
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
@@ -36,6 +42,9 @@
 	<bean id="daoPost" class="com.notefinder.dao.PostDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean>
+	<bean id="daoAttachment" class="com.notefinder.dao.AttachmentDaoImpl">    
+		<property name="template" ref="jt"></property>    
+	</bean>
 	<bean id="daoCourse" class="com.notefinder.dao.CourseDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean> 
@@ -43,9 +52,6 @@
 		<property name="template" ref="jt"></property>    
 	</bean>
 	<bean id="daoUser" class="com.notefinder.dao.UserDaoImpl">    
-		<property name="template" ref="jt"></property>    
-	</bean> 
-	<bean id="daoCommentFlag" class="com.notefinder.dao.CommentFlagDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean>   
 </beans> 

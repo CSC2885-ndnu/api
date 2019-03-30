@@ -19,12 +19,10 @@ public class UserDaoImpl implements UserDao{
 	}
 	
 	public int save(User u) {
-		String sql = "insert into user(id,firstName,lastName,studentID,email,password,avatar,isAdmin,flagged,createdTS)"
-			+ "values(" + u.getUser_id() + ",'" + u.getFirstName() + "','" + u.getLastName() 
-			+ "'," + u.getStudentID() + ",'" + u.getEmail() +  "','" + u.getPassword()
-			+ "','" + u.getAvatar() + "'," + u.getIsAdmin() + "," + u.getFlagged()
-			+ "," + u.getIsLoggedIn() + ", now())";
-				
+		String sql = "INSERT INTO user VALUES ('" + u.getFirstName() + "','" 
+		+ u.getLastName() + "'," + u.getStudentID() + ",'" + u.getEmail() 
+		+ "','" + u.getPassword() + "','" + u.getAvatar() + "'," + u.getIsAdmin() 
+		+ "," + u.getFlagged() + "," + u.getIsLoggedIn() + ", now())";
 		return template.update(sql);
 	}
 	
@@ -35,7 +33,7 @@ public class UserDaoImpl implements UserDao{
 		+ "', password='" + u.getPassword() + "', avatar='" 
 		+ u.getAvatar() + "', isAdmin=" + u.getIsAdmin() 
 		+ ", flagged=" + u.getFlagged() + ", isLoggedIn=" 
-		+ u.getIsLoggedIn() + ", createdTS=" + ", now() where id=" + u.getUser_id();
+		+ u.getIsLoggedIn() + ", createdTS=" + ", now()";
 		return template.update(sql);
 	}
 	
@@ -45,7 +43,7 @@ public class UserDaoImpl implements UserDao{
 	} 
 	
 	public User getUserById(int studentID){
-		String sql= "SELECT * FROM user WHERE studentID=?";
+		String sql= "SELECT * FROM user WHERE studentID=";
 		return template.queryForObject(sql, new Object[]{studentID},new BeanPropertyRowMapper<User>(User.class));
 	}
 	
