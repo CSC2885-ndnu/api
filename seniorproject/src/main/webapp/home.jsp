@@ -20,7 +20,7 @@
  <br>
  User: 
  <br>
- <a href="viewuser">View Users List</a>
+ <a href="viewuser">View Users</a>
  <a href="adduser">Add User</a>
  <a href="updateUser">Update User</a>
  <a href="deleteUser">Delete Users</a>

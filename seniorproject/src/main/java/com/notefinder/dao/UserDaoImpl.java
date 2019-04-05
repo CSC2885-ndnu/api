@@ -22,8 +22,8 @@ public class UserDaoImpl implements UserDao{
 		String sql = "insert into user(id,firstName,lastName,studentID,email,password,avatar,isAdmin,flagged,createdTS)"
 			+ "values(" + u.getUser_id() + ",'" + u.getFirstName() + "','" + u.getLastName() 
 			+ "'," + u.getStudentID() + ",'" + u.getEmail() +  "','" + u.getPassword()
-			+ "','" + u.getAvatar() + "'," + u.getIsAdmin() + "," + u.getFlagged()
-			+ "," + u.getIsLoggedIn() + ", now())";
+			+ "','" + u.getAvatar() + "'," + false + "," + false
+			+ "," + false + ", now())";
 				
 		return template.update(sql);
 	}

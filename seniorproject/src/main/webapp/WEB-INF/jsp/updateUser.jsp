@@ -10,14 +10,14 @@
 </head>
 <body>
     <div align="center">
-        <form:form action="updateUser" method="post" commandName="userUpdateForm">
+        <form:form method="post" action="../editUser">
             <table border="0">
                 <tr>
                     <td colspan="2" align="center"><h2>Update a user</h2></td>
                 </tr>
                 <tr>
                     <td>ID:</td>
-                    <td><form:input  path="user_id" placeholder="int" /></td>
+                    <td><form:input  path="user_id" /></td>
                 </tr>
                 <tr>
                     <td>First Name:</td>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><form:input path="password" /></td>
+                    <td><form:password path="password" /></td>
                 </tr>
                 <tr>
                     <td>Avatar:</td>
@@ -57,10 +57,11 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Update User in Database" /></td>
+                    <td colspan="2" align="center"><input type="submit" value="Edit User in Database" /></td>
                 </tr>
             </table>
         </form:form>
     </div>
+
 </body>
 </html>

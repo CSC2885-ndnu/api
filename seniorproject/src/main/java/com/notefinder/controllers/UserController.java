@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,33 +29,32 @@ public class UserController {
     } 
 	
     // Adding Users
-    @RequestMapping(value = "/adduser" , method = RequestMethod.GET)
+    @RequestMapping(value = "/addUser" , method = RequestMethod.GET)
     public String viewAddUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
     	User userForm = new User();    
         model.put("userForm", userForm);
-        return "adduser";
+        return "addUser";
     }
     
-    @RequestMapping(value = "/adduser" , method = RequestMethod.POST)
+    @RequestMapping(value = "/addUser" , method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
     	manager.save(user);
-        return "redirect:/viewuser";
+        return "redirect:home";
     }
     
     // Update users
-    @RequestMapping(value = "/updateUser" , method = RequestMethod.GET)
-    public String viewupdateUser(@ModelAttribute("userUpdateForm") User user, Map<String, Object> model) {
-    	User userForm = new User();    
-        model.put("userForm", userForm);
+    @RequestMapping(value = "/updateUser/{id}")
+    public String editUser(@PathVariable int id, Model m) {
+    	User user = manager.getUserById(id);  
+        m.addAttribute(user);
         return "updateUser";
     }
     
-    @RequestMapping(value = "/updateUser" , method = RequestMethod.POST)
-    public String updateUser(@ModelAttribute("userUpdateForm") User user,Map<String, Object> model) {
-         
+    @RequestMapping(value = "/editSave" , method = RequestMethod.POST)
+    public String updateUser(@ModelAttribute("user") User user) {
     	manager.update(user);
          
-        return "redirect:/viewuser";
+        return "redirect:/users";
     }
     
     // Delete Users
@@ -66,32 +66,32 @@ public class UserController {
         return "deleteUser";
     }
     
-//    @RequestMapping(value = "/deleteUser" , method = RequestMethod.POST)
-//    public String deleteUser(@ModelAttribute("userDeleteForm") User user,
-//            Map<String, Object> model) {
-//         
-//    	manager.delete(user.getStudentID());
-//         
-//        return "home";
-//    }
+    @RequestMapping(value = "/deleteUser" , method = RequestMethod.POST)
+    public String deleteUser(@ModelAttribute("userDeleteForm") User user,
+            Map<String, Object> model) {
+         
+    	manager.delete(user.getStudentID());
+         
+        return "viewuser";
+    }
     
     // Get users by studentID
     @RequestMapping(value = "/getUser" , method = RequestMethod.GET)
-    public String viewGetUser(@ModelAttribute("userGetForm") StudentID studentID, Map<String, Object> model) {
-        System.out.println(studentID);
+    public String viewGetUser(@ModelAttribute("userGetForm") User user, Map<String, Object> model) {
+        System.out.println(user);
          
         return "getUser";
     }
     
     @RequestMapping(value = "/getUser", method = RequestMethod.POST)    
-    public String viewGetUser(@ModelAttribute("studentID") StudentID studentID, Model m) {    
-        User list= manager.getUserById(studentID.getStudentID());   
-        System.out.println(studentID.getStudentID());
+    public String viewGetUser(@ModelAttribute("studentID") User user, Model m) {    
+        User list= manager.getUserById(user.getStudentID());   
+        System.out.println(user.getStudentID());
         System.out.println(list);
         
        m.addAttribute("list",list);  
        
-        return "home";    
+        return "viewuser";    
     }
 
 }
