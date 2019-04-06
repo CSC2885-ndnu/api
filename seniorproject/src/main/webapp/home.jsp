@@ -37,3 +37,4 @@
  <br>
  <a href="viewCommentFlags">View Comment Flags</a>
  <a href="addCommentFlag">Add Comment Flag</a>
+ <a href="updateCommentFlag">Update Comment Flag</a>

@@ -4,6 +4,7 @@
 <h1>View CommentFlags</h1>  
 <table border="2" width="70%" cellpadding="2">  
 	<tr>
+		<th>CommentFlag ID</th>
 		<th>Comment Id</th>
 		<th>Flagger</th>
 		<th>Flag Date</th>
@@ -12,7 +13,8 @@
 	</tr>  
 	
    <c:forEach var="items" items="${list}">   
-	   <tr>  
+	   <tr> 
+	   <td>${items.id}</td>  
 	   <td>${items.comment_id}</td>  
 	   <td>${items.flagger}</td>  
 	   <td>${items.date}</td>  

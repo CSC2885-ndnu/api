@@ -49,11 +49,12 @@ public class CommentFlagDaoImpl implements CommentFlagDao {
 		return template.query("select * from comment_flag", new RowMapper<CommentFlag>() {
 			public CommentFlag mapRow(ResultSet rs, int row) throws SQLException {
 				CommentFlag p = new CommentFlag();
-				p.setComment_id(rs.getInt(1));
-				p.setFlagger(rs.getInt(2));
-				p.setDate(rs.getTimestamp(3));
-				p.setActive(rs.getBoolean(4));
-				p.setNotes(rs.getString(5));
+				p.setId(rs.getInt(1));
+				p.setComment_id(rs.getInt(2));
+				p.setFlagger(rs.getInt(3));
+				p.setDate(rs.getTimestamp(4));
+				p.setActive(rs.getBoolean(5));
+				p.setNotes(rs.getString(6));
 				return p;
 			}
 		});
