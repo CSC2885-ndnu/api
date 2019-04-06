@@ -20,8 +20,8 @@
  <br>
  User: 
  <br>
- <a href="viewuser">View Users</a>
- <a href="adduser">Add User</a>
+ <a href="viewUser">View Users</a>
+ <a href="addUser">Add User</a>
  <a href="updateUser">Update User</a>
  <a href="deleteUser">Delete Users</a>
  <a href="getUser">Get User By StudentID</a>

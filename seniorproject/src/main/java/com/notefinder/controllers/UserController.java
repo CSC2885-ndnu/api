@@ -20,11 +20,11 @@ public class UserController {
     UserManager manager;
     
     // View users in a list
-    @RequestMapping("/viewuser")    
+    @RequestMapping("/viewUser")    
     public String viewuser(Model m){    
         List<User> list=manager.getUser();    
         m.addAttribute("list",list);  
-        return "viewuser";    
+        return "viewUser";    
     } 
 	
     // Adding Users
@@ -71,7 +71,7 @@ public class UserController {
          
     	manager.delete(user.getStudentID());
          
-        return "viewuser";
+        return "viewUser";
     }
     
     // Get users by studentID
@@ -90,7 +90,7 @@ public class UserController {
         
        m.addAttribute("list",list);  
        
-        return "viewuser";    
+        return "viewUser";    
     }
 
 }
