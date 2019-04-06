@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.service.UserManager;
-import com.notefinder.models.Course;
 import com.notefinder.models.User;
 
 @Controller
