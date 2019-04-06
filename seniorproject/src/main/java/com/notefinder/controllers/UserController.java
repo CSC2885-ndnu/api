@@ -36,7 +36,7 @@ public class UserController {
     public String viewuser(Model m){    
         List<User> list=manager.getUser();    
         m.addAttribute("list",list);  
-        return "viewUser";    
+        return "users";    
     } 
 	
     // Adding Users
@@ -56,7 +56,7 @@ public class UserController {
     // Update users
     @RequestMapping(value = "/updateUser/{id}")
     public String editUser(@PathVariable int id, Model m) {
-    	User user = manager.getUserById(id);  
+    	List<User> user = manager.getUserById(id);  
         m.addAttribute(user);
         return "updateUser";
     }
@@ -95,13 +95,13 @@ public class UserController {
     
     @RequestMapping(value = "/getUser", method = RequestMethod.POST)    
     public String viewGetUser(@ModelAttribute("user_id") User user, Model m) {    
-        User list= manager.getUserById(user.getUser_id());   
+    	List<User> list= manager.getUserById(user.getUser_id());   
         System.out.println(user.getUser_id());
         System.out.println(list);
         
        m.addAttribute("list",list);  
        
-        return "viewUser";    
+        return "users";    
     }
 
 }

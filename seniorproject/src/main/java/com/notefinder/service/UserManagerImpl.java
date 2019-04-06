@@ -26,7 +26,7 @@ public class UserManagerImpl implements UserManager {
 		return dao.delete(id);
 	}
 	
-	public User getUserById(int id) {
+	public List<User> getUserById(int id) {
 		return dao.getUserById(id);
 	}
 	

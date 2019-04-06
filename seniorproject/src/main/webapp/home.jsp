@@ -24,7 +24,7 @@
  <a href="addUser">Add User</a>
  <a href="updateUser">Update User</a>
  <a href="deleteUser">Delete Users</a>
- <a href="getUser">Get User By StudentID</a>
+ <a href="getUser">Get User By ID</a>
  <br>
  <br>
  Comment:
