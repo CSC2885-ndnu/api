@@ -6,19 +6,10 @@ public class CommentFlag {
 
     // Variables
     private int comment_id;
-    private User flagger;
+    private int flagger;
     private String notes;
     private Timestamp date;
     private boolean active;
-
-    // Constructor
-//    public CommentFlag(Comment comment_id, User flagger, String notes, Timestamp date, boolean active) {
-//        this.comment_id = comment_id;
-//        this.flagger = flagger;
-//        this.notes = notes;
-//        this.date = date;
-//        this.active = active;
-//    }
 
     // Getters & Setters
     public int getComment_id() {
@@ -29,11 +20,11 @@ public class CommentFlag {
         this.comment_id = comment_id;
     }
 
-    public User getFlagger() {
+    public int getFlagger() {
         return flagger;
     }
 
-    public void setFlagger(User flagger) {
+    public void setFlagger(int flagger) {
         this.flagger = flagger;
     }
 

@@ -52,7 +52,7 @@ public class PostController {
     	return "editPostForm";
     }
     
-    @RequestMapping(value="/editSave", method=RequestMethod.POST)
+    @RequestMapping(value="/editSavePost", method=RequestMethod.POST)
     public String editsave(@ModelAttribute("post") Post post) {
     	manager.update(post);
     	return "redirect:/posts";

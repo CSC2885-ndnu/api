@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.service.UserManager;
 import com.notefinder.models.User;
-import com.notefinder.models.StudentID;
 
 @Controller
 public class UserController {
@@ -50,7 +49,7 @@ public class UserController {
         return "updateUser";
     }
     
-    @RequestMapping(value = "/editSave" , method = RequestMethod.POST)
+    @RequestMapping(value = "/editSaveUser" , method = RequestMethod.POST)
     public String updateUser(@ModelAttribute("user") User user) {
     	manager.update(user);
          
