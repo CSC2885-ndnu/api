@@ -46,10 +46,9 @@ public class PostDaoImpl implements PostDao
 	            p.setTitle(rs.getString(2));    
 	            p.setCourseID(rs.getInt(3));  
 	            p.setPostDate(rs.getTimestamp(4));
-	            p.setPostDate(rs.getTimestamp(5));
-	            p.setNote(rs.getString(6));
-	            p.setUserID(rs.getInt(7));
-	            p.setFlagged(rs.getBoolean(8));
+	            p.setNote(rs.getString(5));
+	            p.setUserID(rs.getInt(6));
+	            p.setFlagged(rs.getBoolean(7));
 	            return p;    
 	        }    
 	    });    
