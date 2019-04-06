@@ -15,6 +15,9 @@ import com.notefinder.models.Course;
 import com.notefinder.models.CourseId;
 import com.notefinder.service.CourseManager;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.Map;
 @Controller    
 public class CourseController {    
@@ -26,6 +29,17 @@ public class CourseController {
         List<Course> courses = manager.getCourse();
         if(courses.isEmpty()){
             return new ResponseEntity<List<Course>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Course>>(courses, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/getUserCourses/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Course>> getUserCourses(@PathVariable("id") int id) {
+        System.out.println("Fetching Courses with id " + id);
+        List<Course> courses = manager.getUserCourses(id);
+        if (courses == null) {
+            System.out.println("User with id " + id + " not found");
+            return new ResponseEntity<List<Course>>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<List<Course>>(courses, HttpStatus.OK);
     }

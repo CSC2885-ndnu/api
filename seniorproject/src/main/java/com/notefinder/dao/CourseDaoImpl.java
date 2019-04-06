@@ -86,4 +86,24 @@ public class CourseDaoImpl implements CourseDao
 	        }    
 	    });    
 	}
+	
+	public List<Course> getUserCourses(int id){
+		return template.query("select * from course join enrolled on course.id = enrolled.courseID and enrolled.userID =" + id,new RowMapper<Course>(){    
+	        public Course mapRow(ResultSet rs, int row) throws SQLException {    
+	            Course p=new Course();    
+	            p.setCourse_id(rs.getInt(1));    
+	            p.setCourseCode(rs.getInt(2));    
+	            p.setDepartment(rs.getString(3));
+	            p.setCourseName(rs.getString(4));
+	            p.setCourseDescription(rs.getString(5));  
+	            p.setSection(rs.getInt(6));
+	            p.setCourseSyllabus(rs.getString(7));
+	            p.setSemester(rs.getString(8));
+	            p.setYear(rs.getInt(9));
+	            p.setProfessor(rs.getString(10));
+	            p.setLink(rs.getString(11));
+	            return p;    
+	        }    
+	    });
+	}
 }
