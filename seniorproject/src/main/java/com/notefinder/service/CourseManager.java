@@ -9,4 +9,5 @@ public interface CourseManager {
 	public int delete(int id);
 	public List<Course> getCourseById(int id);
 	public List<Course> getCourse();
+	public List<Course> getUserCourses(int id);
 }

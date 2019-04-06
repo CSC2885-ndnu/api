@@ -34,5 +34,9 @@ public class CourseManagerImpl implements CourseManager {
 	public List<Course> getCourse() {
 		return dao.getCourse();
 	}
+	
+	public List<Course> getUserCourses(int id){
+		return dao.getUserCourses(id);
+	}
 
 }
