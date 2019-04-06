@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.notefinder.dao.PostDao;
 import com.notefinder.models.Post;
+import com.notefinder.models.PostLanding;
 
 @Service("postManager")
 public class PostManagerImpl implements PostManager {
@@ -34,5 +35,8 @@ public class PostManagerImpl implements PostManager {
 	public List<Post> getPosts() {
 		return dao.getPosts();
 	}
-
+	
+	public List<PostLanding> getPostsForLanding(int numberOfPosts) {
+		return dao.getPostsForLanding(numberOfPosts);
+	}
 }

@@ -2,20 +2,34 @@ package com.notefinder.controllers;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;    
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.notefinder.models.Post;
 import com.notefinder.models.PostID;
 import com.notefinder.service.PostManager;
+import com.notefinder.models.PostLanding;
+
 @Controller    
 public class PostController {    
     @Autowired    
     PostManager manager;
+    
+    @RequestMapping(value = "/landingpage/{numberOfPosts}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<PostLanding>> getPostInfoForLanding(@PathVariable int numberOfPosts) {
+        List<PostLanding> posts = manager.getPostsForLanding(numberOfPosts);
+        if(posts.isEmpty()){
+            return new ResponseEntity<List<PostLanding>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<PostLanding>>(posts, HttpStatus.OK);
+    }
     
     @RequestMapping("/posts")
     public String viewpost(Model m) {
