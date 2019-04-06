@@ -19,8 +19,8 @@ public class CommentFlagDaoImpl implements CommentFlagDao {
 	public int save(CommentFlag p)
 	{
 		String sql = "insert into comment_flag(commentID,flagger,flagDate,active,notes) "
-				+ "values(" + p.getComment_id() + "," + p.getFlagger() + "," + p.getDate() + ","
-				+ p.isActive() + ",'" + p.getNotes() + ")";
+				+ "values(" + p.getComment_id() + "," + p.getFlagger() + ",'" + p.getDate() + "',"
+				+ p.isActive() + ",'" + p.getNotes() + "')";
 		return template.update(sql);	
 	}
 

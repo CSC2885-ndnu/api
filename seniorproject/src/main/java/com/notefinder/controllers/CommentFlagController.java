@@ -48,7 +48,7 @@ public class CommentFlagController {
     public String addCommentFlag(@ModelAttribute("commentFlagForm") CommentFlag cf,
             Map<String, Object> model) {
          
-    	//int save = manager.save(cf);
+    	manager.save(cf);
     	System.out.println(cf);
          
         return "home";
