@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 
 public class Post {
 
-
     private int id;
     private String title;
     private int courseID;

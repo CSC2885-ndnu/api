@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.Post;
+import com.notefinder.models.PostLanding;
 
  
 public class PostDaoImpl implements PostDao
@@ -52,5 +53,18 @@ public class PostDaoImpl implements PostDao
 	            return p;    
 	        }    
 	    });    
+	}
+	
+	public List<PostLanding> getPostsForLanding(int numberOfPosts){
+	    return template.query("select p.id, p.title, c.name, p.postDate from post p, course c where p.courseID = c.id limit " + numberOfPosts,new RowMapper<PostLanding>(){    
+	        public PostLanding mapRow(ResultSet rs, int row) throws SQLException {    
+	        	PostLanding p=new PostLanding();    
+	            p.setId(rs.getInt(1));
+	            p.setSubmission_title(rs.getString(2));
+	            p.setSubmission_course_name(rs.getString(3));
+	            p.setSubmission_date(rs.getTimestamp(4));
+	            return p;    
+	        }    
+	    });
 	}
 }
