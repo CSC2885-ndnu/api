@@ -44,9 +44,9 @@ public class UserDaoImpl implements UserDao{
 	    return template.update(sql);    
 	} 
 	
-	public User getUserById(int studentID){
-		String sql= "SELECT * FROM user WHERE studentID=?";
-		return template.queryForObject(sql, new Object[]{studentID},new BeanPropertyRowMapper<User>(User.class));
+	public User getUserById(int id){
+		String sql= "SELECT * FROM user WHERE id=?";
+		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<User>(User.class));
 	}
 	
 	

@@ -6,18 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Get User by studentID!</title>
+<title>Get User by ID!</title>
 </head>
 <body>
     <div align="center">
         <form:form action="getUser" method="post" commandName="userGetForm" modelAttribute="userGetForm">
             <table border="0">
                 <tr>
-                    <td colspan="2" align="center"><h2>Get User by studentID:</h2></td>
+                    <td colspan="2" align="center"><h2>Get User by ID:</h2></td>
                 </tr>
                 <tr>
                     <td>Enter ID of Row to retrieve:</td>
-                    <td><form:input  path="studentID" placeholder="int" name="studentID" /></td>
+                    <td><form:input  path="user_id" placeholder="int" name="user_id" /></td>
                 </tr>
                 
                 <tr>

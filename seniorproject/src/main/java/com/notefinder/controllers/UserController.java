@@ -83,9 +83,9 @@ public class UserController {
     }
     
     @RequestMapping(value = "/getUser", method = RequestMethod.POST)    
-    public String viewGetUser(@ModelAttribute("studentID") User user, Model m) {    
-        User list= manager.getUserById(user.getStudentID());   
-        System.out.println(user.getStudentID());
+    public String viewGetUser(@ModelAttribute("user_id") User user, Model m) {    
+        User list= manager.getUserById(user.getUser_id());   
+        System.out.println(user.getUser_id());
         System.out.println(list);
         
        m.addAttribute("list",list);  
