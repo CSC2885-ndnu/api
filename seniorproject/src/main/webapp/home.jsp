@@ -37,3 +37,10 @@
  <br>
  <a href="viewCommentFlags">View Comment Flags</a>
  <a href="addCommentFlag">Add Comment Flag</a>
+ <br>
+ <br>
+ Attachment:
+ <br>
+ <a href="viewAttachment">View Attachments</a>
+ <a href="addAttachment">Add Attachment</a>
+ <a href="updateAttachment">Update Attachment</a>
