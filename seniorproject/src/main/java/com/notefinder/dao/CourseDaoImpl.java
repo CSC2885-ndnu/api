@@ -25,8 +25,8 @@ public class CourseDaoImpl implements CourseDao
 //		return template.update(sql);
 //	}
 	public int save(Course p) {
-		String sql = "insert into course(courseCode,dept,name,description,section,syllabus,semester,year,prof,link) values(" + p.getCourseCode() + ",'" + p.getDepartment() + "','" + p.getCourseName()  + "','" 
-									+ p.getCourseDescription() + "'," + p.getSection() + ",'" + p.getCourseSyllabus() + "','" + p.getSemester() + "'," + p.getYear() 
+		String sql = "insert into course(courseCode,dept,name,description,section,syllabus,semester,meetingDay,year,prof,link) values(" + p.getCourseCode() + ",'" + p.getDepartment() + "','" + p.getCourseName()  + "','" 
+									+ p.getCourseDescription() + "'," + p.getSection() + ",'" + p.getCourseSyllabus() + "','" + p.getSemester() + "','" + p.getMeetingDay() + "'," + p.getYear() 
 									+ ",'" + p.getProfessor() + "','" + p.getLink() + "')";
 		return template.update(sql);
 	}
@@ -34,7 +34,7 @@ public class CourseDaoImpl implements CourseDao
 	public int update(Course p) {
 		String sql = "update course set courseCode=" + p.getCourseCode() + ", dept='" + p.getDepartment() + "', name='" 
 						+ p.getCourseName() + "', description='" + p.getCourseDescription() + "', section=" + p.getSection() + ", syllabus='" 
-							+ p.getCourseSyllabus() + "', semester='" + p.getSemester() + "', year=" + p.getYear() + ", prof='" + p.getProfessor() 
+							+ p.getCourseSyllabus() + "', semester='" + p.getSemester() + "', meetingDay='" + p.getMeetingDay() + "', year=" + p.getYear() + ", prof='" + p.getProfessor() 
 									+ "', link='" + p.getLink() + "' WHERE id=" + p.getCourse_id() ;
 		return template.update(sql);
 	}
@@ -59,9 +59,10 @@ public class CourseDaoImpl implements CourseDao
 	            p.setSection(rs.getInt(6));
 	            p.setCourseSyllabus(rs.getString(7));
 	            p.setSemester(rs.getString(8));
-	            p.setYear(rs.getInt(9));
-	            p.setProfessor(rs.getString(10));
-	            p.setLink(rs.getString(11));
+	            p.setMeetingDay(rs.getString(9));
+	            p.setYear(rs.getInt(10));
+	            p.setProfessor(rs.getString(11));
+	            p.setLink(rs.getString(12));
 	            return p;    
 	        }    
 	    }); 
@@ -79,9 +80,10 @@ public class CourseDaoImpl implements CourseDao
 	            p.setSection(rs.getInt(6));
 	            p.setCourseSyllabus(rs.getString(7));
 	            p.setSemester(rs.getString(8));
-	            p.setYear(rs.getInt(9));
-	            p.setProfessor(rs.getString(10));
-	            p.setLink(rs.getString(11));
+	            p.setMeetingDay(rs.getString(9));
+	            p.setYear(rs.getInt(10));
+	            p.setProfessor(rs.getString(11));
+	            p.setLink(rs.getString(12));
 	            return p;    
 	        }    
 	    });    
@@ -99,9 +101,10 @@ public class CourseDaoImpl implements CourseDao
 	            p.setSection(rs.getInt(6));
 	            p.setCourseSyllabus(rs.getString(7));
 	            p.setSemester(rs.getString(8));
-	            p.setYear(rs.getInt(9));
-	            p.setProfessor(rs.getString(10));
-	            p.setLink(rs.getString(11));
+	            p.setMeetingDay(rs.getString(9));
+	            p.setYear(rs.getInt(10));
+	            p.setProfessor(rs.getString(11));
+	            p.setLink(rs.getString(12));
 	            return p;    
 	        }    
 	    });

@@ -12,6 +12,7 @@
 		<th>Section</th>
 		<th>Syllabus</th>
 		<th>Semester</th>
+		<th>Meeting Day</th>
 		<th>Year</th>
 		<th>Professor</th>
 		<th>Link</th>
@@ -27,6 +28,7 @@
 	   <td>${course.section}</td>  
 	   <td>${course.courseSyllabus}</td>  
 	   <td>${course.semester}</td>
+	   <td>${course.meetingDay}</td>
 	   <td>${course.year}</td>
 	   <td>${course.professor}</td>
 	   <td>${course.link}</td>
