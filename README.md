@@ -3,7 +3,7 @@ Backend
 =======
 Team Members and their tables:
 - Ahmed: User
-- Megan: Post
+- Megan: Post + enrolled
 - Naomi: Course + commentsFlag
 - Martin: Comments
 - Marc: Attachments
@@ -11,9 +11,7 @@ Team Members and their tables:
 - Jack:
 
 Tables needs to be built:
-- comment_rank
-- enrolled
-- post_rank                         
+- None.                       
 
 Packages:
 - service: com.notefinder.service
