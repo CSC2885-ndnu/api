@@ -15,12 +15,21 @@ public class Course {
     private int section;
     private String courseSyllabus;
     private String semesterID;
-    private int year;
+    private String meetingDay;
+	private int year;
     private String professor;
     private String link;
 
 
     // Getters & Setters
+    public String getMeetingDay() {
+		return meetingDay;
+	}
+
+	public void setMeetingDay(String meetingDay) {
+		this.meetingDay = meetingDay;
+	}
+	
     public int getCourse_id() {
         return course_id;
     }

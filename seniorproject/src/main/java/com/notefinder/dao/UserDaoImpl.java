@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.notefinder.models.Course;
 import com.notefinder.models.User;
 
 public class UserDaoImpl implements UserDao{
@@ -44,9 +45,24 @@ public class UserDaoImpl implements UserDao{
 	    return template.update(sql);    
 	} 
 	
-	public User getUserById(int id){
-		String sql= "SELECT * FROM user WHERE id=?";
-		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<User>(User.class));
+	public List<User> getUserById(int id){
+		return template.query("select * from user where id="+id,new RowMapper<User>(){    
+	        public User mapRow(ResultSet rs, int row) throws SQLException {
+	            User u=new User();    
+	            u.setUser_id(rs.getInt(1));    
+	            u.setFirstName(rs.getString(2));    
+	            u.setLastName(rs.getString(3));    
+	            u.setStudentID(rs.getInt(4));  
+	            u.setEmail(rs.getString(5));
+	            u.setPassword(rs.getString(6));
+	            u.setAvatar(rs.getString(7));
+	            u.setIsAdmin(rs.getBoolean(8));	            
+	            u.setFlagged(rs.getBoolean(9));
+	            u.setIsLoggedIn(rs.getBoolean(10));
+	            u.setCreatedTS(rs.getTimestamp(11));
+	            return u; 
+	            }
+	    }); 
 	}
 	
 	

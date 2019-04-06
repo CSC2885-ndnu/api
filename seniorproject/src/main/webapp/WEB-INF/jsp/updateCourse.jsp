@@ -48,6 +48,10 @@
                     <td><form:input path="semester" /></td>
                 </tr>
                 <tr>
+                    <td>Meeting Day:</td>
+                    <td><form:input path="meetingDay" /></td>
+                </tr>
+                <tr>
                     <td>Year:</td>
                     <td><form:input path="year" /></td>
                 </tr>
