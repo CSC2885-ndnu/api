@@ -15,7 +15,6 @@ CREATE TABLE course
     section INT(2),
     syllabus TEXT(65535),
     semester VARCHAR(255),
-    meetingDay VARCHAR(255),
     year INT(4),
     prof VARCHAR(255),
     link VARCHAR(255),
@@ -145,7 +144,6 @@ INSERT INTO course VALUES (
     10,
     'We gon learn some history',
     'Fall',
-    'M',
     '2019',
     'Youssefi',
     'www.worldhistory.com'
@@ -159,7 +157,6 @@ INSERT INTO course VALUES (
     20,
     'We gon learn some history',
     'Fall',
-    'MWF',
     '2019',
     'Youssefi',
     'www.worldhistory.com'
