@@ -2,7 +2,9 @@ package com.notefinder.controllers;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;    
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.service.UserManager;
+import com.notefinder.models.Course;
 import com.notefinder.models.User;
 
 @Controller
@@ -18,6 +21,15 @@ public class UserController {
 	
     @Autowired    
     UserManager manager;
+    
+    @RequestMapping(value = "/usersjson/", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<User>> listAllUsers() {
+        List<User> users = manager.getUser();
+        if(users.isEmpty()){
+            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+    }
     
     // View users in a list
     @RequestMapping("/viewUser")    
@@ -66,8 +78,7 @@ public class UserController {
     }
     
     @RequestMapping(value = "/deleteUser" , method = RequestMethod.POST)
-    public String deleteUser(@ModelAttribute("userDeleteForm") User user,
-            Map<String, Object> model) {
+    public String deleteUser(@ModelAttribute("userDeleteForm") User user, Map<String, Object> model) {
          
     	manager.delete(user.getStudentID());
          
