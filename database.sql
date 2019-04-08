@@ -104,11 +104,13 @@ CREATE TABLE post_flag
 DROP TABLE IF EXISTS comment_flag;
 CREATE TABLE comment_flag
 (
+    id INT NOT NULL AUTO_INCREMENT,
     commentID INT,
     flagger INT,
     flagDate DATETIME,
     active BIT,
     notes VARCHAR(255),
+    PRIMARY KEY(id),
     FOREIGN KEY(commentID) REFERENCES comment(id),
     FOREIGN KEY(flagger) REFERENCES user(id)
 );
@@ -213,6 +215,7 @@ INSERT INTO comment VALUES (
 );
 
 INSERT INTO comment_flag VALUES (
+    1,
     1,
     1,
     now(),

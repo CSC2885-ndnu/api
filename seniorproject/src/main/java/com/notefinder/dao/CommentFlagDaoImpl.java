@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.CommentFlag;
+import com.notefinder.models.Course;
 
 public class CommentFlagDaoImpl implements CommentFlagDao {
 	JdbcTemplate template;
@@ -26,10 +27,10 @@ public class CommentFlagDaoImpl implements CommentFlagDao {
 
 	public int update(CommentFlag p)
 	{
-		String sql = "update comment set commentID=" + p.getComment_id() 
+		String sql = "update comment_flag set commentID=" + p.getComment_id() 
 				+ ", flagger=" + p.getFlagger() + ", flagDate='" + p.getDate() 
-				+ "', active='" + p.isActive() + "', notes=" + p.getNotes() 
-				+ " where id=" + p.getComment_id();
+				+ "', active=" + p.isActive() + ", notes='" + p.getNotes() 
+				+ "' where id=" + p.getId();
 		return template.update(sql);
 	}
 
@@ -39,9 +40,27 @@ public class CommentFlagDaoImpl implements CommentFlagDao {
 	    return template.update(sql); 
 	}
 	
-	public CommentFlag getCommentFlagById(int id){
-		String sql= "select commentID,flagger,flagDate,active,notes from comment_flag where id=?";
-		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<CommentFlag>(CommentFlag.class));
+//	public CommentFlag getCommentFlagById(int id){
+//		String sql= "select commentID,flagger,flagDate,active,notes from comment_flag where id=?";
+//		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<CommentFlag>(CommentFlag.class));
+//	}
+	
+	public List<CommentFlag> getCommentFlagById(int id){    
+	    //String sql="select * from course where id="+ id;    
+	    //return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<CourseId>(CourseId.class)); 
+	    
+	    return template.query("select * from comment_flag where id="+id,new RowMapper<CommentFlag>(){    
+	        public CommentFlag mapRow(ResultSet rs, int row) throws SQLException {    
+	        	CommentFlag p = new CommentFlag();
+				p.setId(rs.getInt(1));
+				p.setComment_id(rs.getInt(2));
+				p.setFlagger(rs.getInt(3));
+				p.setDate(rs.getTimestamp(4));
+				p.setActive(rs.getBoolean(5));
+				p.setNotes(rs.getString(6));
+				return p;   
+	        }    
+	    }); 
 	}
 
 	public List<CommentFlag> getCommentFlags()
@@ -49,11 +68,12 @@ public class CommentFlagDaoImpl implements CommentFlagDao {
 		return template.query("select * from comment_flag", new RowMapper<CommentFlag>() {
 			public CommentFlag mapRow(ResultSet rs, int row) throws SQLException {
 				CommentFlag p = new CommentFlag();
-				p.setComment_id(rs.getInt(1));
-				p.setFlagger(rs.getInt(2));
-				p.setDate(rs.getTimestamp(3));
-				p.setActive(rs.getBoolean(4));
-				p.setNotes(rs.getString(5));
+				p.setId(rs.getInt(1));
+				p.setComment_id(rs.getInt(2));
+				p.setFlagger(rs.getInt(3));
+				p.setDate(rs.getTimestamp(4));
+				p.setActive(rs.getBoolean(5));
+				p.setNotes(rs.getString(6));
 				return p;
 			}
 		});

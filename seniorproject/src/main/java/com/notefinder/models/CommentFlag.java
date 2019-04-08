@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class CommentFlag {
 
     // Variables
+	private int id;
     private int comment_id;
     private int flagger;
     private String notes;
@@ -12,11 +13,20 @@ public class CommentFlag {
     private boolean active;
 
     // Getters & Setters
+    
     public int getComment_id() {
         return comment_id;
     }
 
-    public void setComment_id(int comment_id) {
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setComment_id(int comment_id) {
         this.comment_id = comment_id;
     }
 
