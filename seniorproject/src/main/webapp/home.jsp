@@ -24,7 +24,7 @@
  <a href="addUser">Add User</a>
  <a href="updateUser">Update User</a>
  <a href="deleteUser">Delete Users</a>
- <a href="getUser">Get User By StudentID</a>
+ <a href="getUser">Get User By ID</a>
  <br>
  <br>
  Comment:
@@ -40,4 +40,10 @@
  <a href="editCommentFlag">Update Comment Flag</a>
  <a href="deleteCommentFlag">Delete Comment Flag</a>
  <a href="getCommentFlag">Get Comment Flag by ID</a>
- 
+ <br>
+ <br>
+ Attachment:
+ <br>
+ <a href="viewAttachment">View Attachments</a>
+ <a href="addAttachment">Add Attachment</a>
+ <a href="updateAttachment">Update Attachment</a>

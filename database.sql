@@ -101,36 +101,18 @@ CREATE TABLE post_flag
     FOREIGN KEY(flagger) REFERENCES user(id)
 );
 
-DROP TABLE IF EXISTS post_rank;
-CREATE TABLE post_rank
-(
-    postID INT,
-    userID INT,
-    postRank INT,
-    FOREIGN KEY(postID) REFERENCES post(id),
-    FOREIGN KEY(userID) REFERENCES user(id)
-);
-
 DROP TABLE IF EXISTS comment_flag;
 CREATE TABLE comment_flag
 (
+    id INT NOT NULL AUTO_INCREMENT,
     commentID INT,
     flagger INT,
     flagDate DATETIME,
     active BIT,
     notes VARCHAR(255),
+    PRIMARY KEY(id),
     FOREIGN KEY(commentID) REFERENCES comment(id),
     FOREIGN KEY(flagger) REFERENCES user(id)
-);
-
-DROP TABLE IF EXISTS comment_rank;
-CREATE TABLE comment_rank
-(
-    commentID INT,
-    userID INT,
-    commentRank INT,
-    FOREIGN KEY(commentID) REFERENCES comment(id),
-    FOREIGN KEY(userID) REFERENCES user(id)
 );
 
 
@@ -222,12 +204,6 @@ INSERT INTO post_flag VALUES (
     0
 );
 
-INSERT INTO post_rank VALUES (
-    1,
-    1,
-    1
-);
-
 INSERT INTO comment VALUES (
     1,
     1,
@@ -241,13 +217,8 @@ INSERT INTO comment VALUES (
 INSERT INTO comment_flag VALUES (
     1,
     1,
+    1,
     now(),
     0,
     'Notes'
-);
-
-INSERT INTO comment_rank VALUES (
-    1,
-    1,
-    1
 );
