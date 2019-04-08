@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.models.CommentFlag;
+import com.notefinder.models.CourseId;
 import com.notefinder.service.CommentFlagManager;
 
 import java.util.Map;
@@ -48,70 +49,71 @@ public class CommentFlagController {
     public String addCommentFlag(@ModelAttribute("commentFlagForm") CommentFlag cf,
             Map<String, Object> model) {
          
-    	//int save = manager.save(cf);
+    	manager.save(cf);
     	System.out.println(cf);
          
         return "home";
     }
-//    
-//    @RequestMapping(value = "/updateCourse" , method = RequestMethod.GET)
-//    public String viewupdateCourse(@ModelAttribute("courseUpdateForm") Course course, Map<String, Object> model) {
-//        Course courseForm = new Course();    
-//        model.put("courseForm", courseForm);
-//        
-//        //int save = manager.save(courseForm);
-//         
-//        return "updateCourse";
-//    }
-//    
-//    @RequestMapping(value = "/updateCourse" , method = RequestMethod.POST)
-//    public String updateCourse(@ModelAttribute("courseUpdateForm") Course course,
-//            Map<String, Object> model) {
-//         
-//    	int update = manager.update(course);
-//         
-//        return "home";
-//    }
-//    
-//    @RequestMapping(value = "/deleteCourse" , method = RequestMethod.GET)
-//    public String viewdeleteCourse(@ModelAttribute("courseDeleteForm") Course course, Map<String, Object> model) {
-//        Course courseForm = new Course();    
-//        model.put("courseForm", courseForm);
-//        
-//        //int save = manager.save(courseForm);
-//         
-//        return "deleteCourse";
-//    }
-//    
-//    @RequestMapping(value = "/deleteCourse" , method = RequestMethod.POST)
-//    public String deleteCourse(@ModelAttribute("courseDeleteForm") Course course,
-//            Map<String, Object> model) {
-//         
-//    	int update = manager.delete(course.getCourse_id());
-//         
-//        return "home";
-//    }
-//    
-//    @RequestMapping(value = "/getCourse" , method = RequestMethod.GET)
-//    public String viewgetCourse(@ModelAttribute("courseGetForm") CourseId course_id, Map<String, Object> model) {
-//        System.out.println(course_id);
-////    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
-////        model.put("courseForm", courseForm );
-//        
-//        //int save = manager.save(courseForm);
-//         
-//        return "getCourse";
-//    }  
-//
-//    @RequestMapping(value = "/getCourse", method = RequestMethod.POST)    
-//    public String viewGetCourse(@ModelAttribute("course_id") CourseId course_id, Model m) {    
-//        List<Course> list=manager.getCourseById(course_id.getCourse_id());   
-//        System.out.println(course_id.getCourse_id());
-//        System.out.println(list);
-//        
-//        m.addAttribute("list",list);  
-//        return "viewCourse";    
-//    }
+    
+    @RequestMapping(value = "/editCommentFlag" , method = RequestMethod.GET)
+    public String viewupdateCourse(@ModelAttribute("commentFlagUpdateForm") CommentFlag commentFlag, Map<String, Object> model) {
+        CommentFlag commentFlagForm = new CommentFlag();    
+        model.put("commentFlagUpdateForm", commentFlagForm);
+        
+        //int save = manager.save(courseForm);
+         
+        return "editCommentFlag";
+    }
+    
+    @RequestMapping(value = "/editCommentFlag" , method = RequestMethod.POST)
+    public String updateCourse(@ModelAttribute("commentFlagUpdateForm") CommentFlag commentFlag,
+            Map<String, Object> model) {
+          System.out.println(commentFlag);
+    	manager.update(commentFlag);
+         
+        return "home";
+    }
+    
+    @RequestMapping(value = "/deleteCommentFlag" , method = RequestMethod.GET)
+    public String viewdeleteCommentFlag(@ModelAttribute("commentFlagDeleteForm") CommentFlag commentFlag, Map<String, Object> model) {
+    	CommentFlag commentFlagForm = new CommentFlag();    
+        model.put("commentFlagDeleteForm", commentFlagForm);
+        
+        //int save = manager.save(courseForm);
+         
+        return "deleteCommentFlag";
+    }
+    
+    @RequestMapping(value = "/deleteCommentFlag" , method = RequestMethod.POST)
+    public String deleteCommentFlag(@ModelAttribute("commentFlagDeleteForm") CommentFlag commentFlag,
+            Map<String, Object> model) {
+         
+    	manager.delete(commentFlag.getId());
+    	System.out.println("deleted id: " + commentFlag.getId());
+         
+        return "home";
+    }
+    
+    @RequestMapping(value = "/getCommentFlag" , method = RequestMethod.GET)
+    public String viewgetCommentFlag(@ModelAttribute("commentFlagGetForm") CourseId course_id, Map<String, Object> model) {
+        System.out.println(course_id);
+//    	Course courseForm = manager.getCourseById(course_id.getCourse_id());    
+//        model.put("courseForm", courseForm );
+        
+        //int save = manager.save(courseForm);
+         
+        return "getCommentFlag";
+    }  
+
+    @RequestMapping(value = "/getCommentFlag", method = RequestMethod.POST)    
+    public String viewGetCommentFlag(@ModelAttribute("course_id") CourseId course_id, Model m) {    
+        List<CommentFlag> list=manager.getCommentFlagById(course_id.getCourse_id());   
+        System.out.println(course_id.getCourse_id());
+        System.out.println(list);
+        
+        m.addAttribute("list",list);  
+        return "viewCommentFlag";    
+    }
     
     
 }

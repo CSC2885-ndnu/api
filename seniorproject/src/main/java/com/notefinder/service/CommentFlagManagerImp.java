@@ -25,7 +25,7 @@ public class CommentFlagManagerImp implements CommentFlagManager {
 		return dao.delete(id);
 	}
 	
-	public CommentFlag getCommentFlagById(int id) {
+	public List<CommentFlag> getCommentFlagById(int id) {
 		return dao.getCommentFlagById(id);
 	}
 	
