@@ -18,8 +18,8 @@ public class UserDaoImpl implements UserDao{
 	}
 	
 	public int save(User u) {
-		String sql = "insert into user(id,firstName,lastName,studentID,email,password,avatar,isAdmin,flagged,createdTS)"
-			+ "values(" + u.getUser_id() + ",'" + u.getFirstName() + "','" + u.getLastName() 
+		String sql = "insert into user(firstName,lastName,studentID,email,password,avatar,isAdmin,flagged,createdTS)"
+			+ "values('" + u.getFirstName() + "','" + u.getLastName() 
 			+ "'," + u.getStudentID() + ",'" + u.getEmail() +  "','" + u.getPassword()
 			+ "','" + u.getAvatar() + "'," + false + "," + false
 			+ "," + false + ", now())";

@@ -74,7 +74,7 @@ CREATE TABLE comment
     comment VARCHAR(255),
     flagged BOOLEAN,
     PRIMARY KEY(id),
-    FOREIGN KEY(postID) REFERENCES post(id),
+    FOREIGN KEY(postID) REFERENCES post(id) ON DELETE CASCADE,
     FOREIGN KEY(userID) REFERENCES user(id)
 );
 
@@ -111,7 +111,7 @@ CREATE TABLE comment_flag
     active BIT,
     notes VARCHAR(255),
     PRIMARY KEY(id),
-    FOREIGN KEY(commentID) REFERENCES comment(id),
+    FOREIGN KEY(commentID) REFERENCES comment(id) ON DELETE CASCADE,
     FOREIGN KEY(flagger) REFERENCES user(id)
 );
 
