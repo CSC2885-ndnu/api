@@ -37,4 +37,7 @@
  <br>
  <a href="viewCommentFlags">View Comment Flags</a>
  <a href="addCommentFlag">Add Comment Flag</a>
- <a href="updateCommentFlag">Update Comment Flag</a>
+ <a href="editCommentFlag">Update Comment Flag</a>
+ <a href="deleteCommentFlag">Delete Comment Flag</a>
+ <a href="getCommentFlag">Get Comment Flag by ID</a>
+ 

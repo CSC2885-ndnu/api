@@ -11,7 +11,7 @@ public interface CommentFlagDao {
 
 	public int delete(int id);
 
-	public CommentFlag getCommentFlagById(int id);
+	public List<CommentFlag> getCommentFlagById(int id);
 
 	public List<CommentFlag> getCommentFlags();
 }
