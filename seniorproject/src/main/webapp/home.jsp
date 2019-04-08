@@ -1,8 +1,8 @@
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
- 
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
  Post:
- <br> 
+ <br>
  <a href="posts">View Posts</a>
  <a href="addPost">Add Post</a>
  <a href="deletePost">Delete Post</a>
@@ -10,7 +10,7 @@
  <br>
  <br>
  Course:
- <br> 
+ <br>
  <a href="courses">View Course</a>
  <a href="addCourse">Add Course</a>
  <a href="updateCourse">Update Course</a>
@@ -18,7 +18,7 @@
  <a href="getCourse">Get Course By ID</a>
  <br>
  <br>
- User: 
+ User:
  <br>
  <a href="viewUser">View Users</a>
  <a href="addUser">Add User</a>
