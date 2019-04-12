@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao{
 			+ "values('" + u.getFirstName() + "','" + u.getLastName() 
 			+ "'," + u.getStudentID() + ",'" + u.getEmail() +  "','" + u.getPassword()
 			+ "','" + u.getAvatar() + "'," + false + "," + false
-			+ "," + false + ", now())";
+			+ ", now())";
 				
 		return template.update(sql);
 	}
@@ -33,8 +33,7 @@ public class UserDaoImpl implements UserDao{
 		+ u.getStudentID() + ", email='" + u.getEmail() 
 		+ "', password='" + u.getPassword() + "', avatar='" 
 		+ u.getAvatar() + "', isAdmin=" + u.getIsAdmin() 
-		+ ", flagged=" + u.getFlagged() + ", isLoggedIn=" 
-		+ u.getIsLoggedIn() + ", createdTS=" + ", now() where id=" + u.getUser_id();
+		+ ", flagged=" + u.getFlagged() + ", createdTS=" + ", now() where id=" + u.getUser_id();
 		return template.update(sql);
 	}
 	
@@ -56,8 +55,7 @@ public class UserDaoImpl implements UserDao{
 	            u.setAvatar(rs.getString(7));
 	            u.setIsAdmin(rs.getBoolean(8));	            
 	            u.setFlagged(rs.getBoolean(9));
-	            u.setIsLoggedIn(rs.getBoolean(10));
-	            u.setCreatedTS(rs.getTimestamp(11));
+	            u.setCreatedTS(rs.getTimestamp(10));
 	            return u; 
 	            }
 	    }); 
@@ -77,8 +75,7 @@ public class UserDaoImpl implements UserDao{
 	            u.setAvatar(rs.getString(7));
 	            u.setIsAdmin(rs.getBoolean(8));	            
 	            u.setFlagged(rs.getBoolean(9));
-	            u.setIsLoggedIn(rs.getBoolean(10));
-	            u.setCreatedTS(rs.getTimestamp(11));
+	            u.setCreatedTS(rs.getTimestamp(10));
 	            return u;    
 	        }    
 	    });

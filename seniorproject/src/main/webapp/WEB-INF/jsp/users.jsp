@@ -13,7 +13,6 @@
 		<th>Avatar</th>
 		<th>isAdmin</th>
 		<th>flagged</th>
-		<th>isLoggedIn</th>
 		<th>createdTS</th>
 	</tr>  
 	
@@ -28,7 +27,6 @@
         <td>${user.avatar}</td>  
         <td>${user.isAdmin}</td>
         <td>${user.flagged}</td>  
-        <td>${user.isLoggedIn}</td>  
         <td>${user.createdTS}</td>
 	   </tr>  
    </c:forEach> 

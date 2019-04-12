@@ -14,7 +14,6 @@ public class User {
     private String avatar;
     private boolean isAdmin;
     private boolean flagged;
-    private boolean isLoggedIn;
     private Timestamp createdTS;
 
 
@@ -91,14 +90,6 @@ public class User {
         this.flagged = flagged;
     }
 
-    public boolean getIsLoggedIn() {
-        return isLoggedIn;
-    }
-
-    public void setIsLoggedIn(boolean isLoggedIn) {
-        this.isLoggedIn = isLoggedIn;
-    }
-
     public Timestamp getCreatedTS() {
         return createdTS;
     }
@@ -120,7 +111,6 @@ public class User {
                 ", avatar='" + avatar + '\'' +
                 ", isAdmin=" + isAdmin +
                 ", flagged=" + flagged +
-                ", isLoggedIn=" + isLoggedIn +
                 ", createdTS=" + createdTS +
                 '}';
     }

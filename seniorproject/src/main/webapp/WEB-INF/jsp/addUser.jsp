@@ -48,10 +48,6 @@
                     <td><form:input path="flagged" /></td>
                 </tr>
                 <tr>
-                    <td>isLoggedIn (0,1):</td>
-                    <td><form:input path="isLoggedIn" /></td>
-                </tr>
-                <tr>
                     <td colspan="2" align="center"><input type="submit" value="Add to User Table" /></td>
                 </tr>
             </table>
