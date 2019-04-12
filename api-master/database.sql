@@ -34,7 +34,6 @@ CREATE TABLE user
     avatar VARCHAR(255),
     isAdmin BIT,
     flagged BIT,
-    isLoggedIn BIT,
     createdTS DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (id)
 );
@@ -74,7 +73,7 @@ CREATE TABLE comment
     comment VARCHAR(255),
     flagged BOOLEAN,
     PRIMARY KEY(id),
-    FOREIGN KEY(postID) REFERENCES post(id) ON DELETE CASCADE,
+    FOREIGN KEY(postID) REFERENCES post(id),
     FOREIGN KEY(userID) REFERENCES user(id)
 );
 
@@ -111,7 +110,7 @@ CREATE TABLE comment_flag
     active BIT,
     notes VARCHAR(255),
     PRIMARY KEY(id),
-    FOREIGN KEY(commentID) REFERENCES comment(id) ON DELETE CASCADE,
+    FOREIGN KEY(commentID) REFERENCES comment(id),
     FOREIGN KEY(flagger) REFERENCES user(id)
 );
 
@@ -157,7 +156,6 @@ INSERT INTO user VALUES (
     'flickr.com',
     0,
     0,
-    0,
     now()
 );
 INSERT INTO user VALUES (
@@ -168,7 +166,6 @@ INSERT INTO user VALUES (
     'mwong@student.ndnu.edu',
     'password',
     'flickr.com',
-    0,
     0,
     0,
     now()

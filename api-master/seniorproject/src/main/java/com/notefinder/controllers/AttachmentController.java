@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;   
 
+import com.notefinder.dao.AttachmentDao;
 import com.notefinder.models.Attachments;
 import com.notefinder.service.AttachmentManager;
 
