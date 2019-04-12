@@ -34,7 +34,6 @@ CREATE TABLE user
     avatar VARCHAR(255),
     isAdmin BIT,
     flagged BIT,
-    isLoggedIn BIT,
     createdTS DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (id)
 );
@@ -157,7 +156,6 @@ INSERT INTO user VALUES (
     'flickr.com',
     0,
     0,
-    0,
     now()
 );
 INSERT INTO user VALUES (
@@ -168,7 +166,6 @@ INSERT INTO user VALUES (
     'mwong@student.ndnu.edu',
     'password',
     'flickr.com',
-    0,
     0,
     0,
     now()
