@@ -49,10 +49,10 @@ public class UserController {
     @RequestMapping(value = "/addUser" , method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
     	manager.save(user);
-        return "redirect:home";
+        return "redirect:/users";
     }
     
-    // Update users
+    // Update users (Need Work)
     @RequestMapping(value = "/updateUser/{id}")
     public String editUser(@PathVariable int id, Model m) {
     	List<User> user = manager.getUserById(id);  
@@ -81,7 +81,7 @@ public class UserController {
          
     	manager.delete(user.getStudentID());
          
-        return "viewUser";
+        return "redirect:/users";
     }
     
     // Get users by studentID
@@ -100,7 +100,7 @@ public class UserController {
         
        m.addAttribute("list",list);  
        
-        return "users";    
+        return "redirect:/users";    
     }
 
 }
