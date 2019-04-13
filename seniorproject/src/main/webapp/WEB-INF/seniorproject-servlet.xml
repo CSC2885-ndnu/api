@@ -36,7 +36,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
 		<property name="url" value="jdbc:mysql://localhost:3306/senior_project_database"></property>    
 		<property name="username" value="root"></property>
-		<property name="password" value="00000000"></property>
+		<property name="password" value="tinkerbell"></property>
 	</bean>    
 	    
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
@@ -61,6 +61,9 @@
 		<property name="template" ref="jt"></property> 
 	</bean>
 	<bean id="daoEnrolled" class="com.notefinder.dao.EnrolledDaoImpl">    
+		<property name="template" ref="jt"></property> 
+	</bean>
+	<bean id="daoRecentSubs" class="com.notefinder.dao.RecentSubmissionsDaoImpl">    
 		<property name="template" ref="jt"></property> 
 	</bean>   
 </beans> 
