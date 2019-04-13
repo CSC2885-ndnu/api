@@ -10,7 +10,7 @@
 </head>
 <body>
     <div align="center">
-        <form:form action="viewUser" method="post" commandName="userForm">
+        <form:form action="addUser" method="post" commandName="userForm">
             <table border="0">
                 <tr>
                     <td colspan="2" align="center"><h2>Add User</h2></td>

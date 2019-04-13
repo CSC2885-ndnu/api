@@ -49,7 +49,7 @@ public class UserController {
     @RequestMapping(value = "/addUser" , method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User user, Map<String, Object> model) {
     	manager.save(user);
-        return "redirect:/users";
+        return "home";
     }
     
     // Update users (Need Work)
@@ -60,11 +60,11 @@ public class UserController {
         return "updateUser";
     }
     
-    @RequestMapping(value = "/editSaveUser" , method = RequestMethod.POST)
+    @RequestMapping(value = "/updateUser" , method = RequestMethod.POST)
     public String updateUser(@ModelAttribute("user") User user) {
     	manager.update(user);
          
-        return "redirect:/users";
+        return "viewUser";
     }
     
     // Delete Users
@@ -81,7 +81,7 @@ public class UserController {
          
     	manager.delete(user.getStudentID());
          
-        return "redirect:/users";
+        return "home";
     }
     
     // Get users by studentID
@@ -100,7 +100,7 @@ public class UserController {
         
        m.addAttribute("list",list);  
        
-        return "redirect:/users";    
+        return "viewUser";    
     }
 
 }

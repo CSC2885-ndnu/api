@@ -42,7 +42,6 @@
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
 		<property name="dataSource" ref="ds"></property>    
 	</bean>    
-	    
 	<bean id="daoPost" class="com.notefinder.dao.PostDaoImpl">    
 		<property name="template" ref="jt"></property>    
 	</bean>
@@ -59,9 +58,9 @@
 		<property name="template" ref="jt"></property>    
 	</bean>
 	<bean id="daoAttachmen" class="com.notefinder.dao.AttachmentDaoImpl">    
-	<property name="template" ref="jt"></property> 
+		<property name="template" ref="jt"></property> 
 	</bean>
 	<bean id="daoEnrolled" class="com.notefinder.dao.EnrolledDaoImpl">    
-	<property name="template" ref="jt"></property> 
+		<property name="template" ref="jt"></property> 
 	</bean>   
 </beans> 

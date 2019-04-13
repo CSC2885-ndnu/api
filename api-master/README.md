@@ -11,7 +11,29 @@ Team Members and their tables:
 - Jack:
 
 Tables needs to be built:
-- None.                       
+- None, YAY..                      
+
+
+JSON:
+- LANDING PAGE:
+Martin
+
+- LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME):
+Martin
+
+Courses enrolled in:
+Naomi
+
+- Showing your recent submissions:
+Naomi
+
+- Course Page: 
+(when user clicks on a course, shows all the notes of that course)
+
+- VIEW POST PAGE:
+
+- Profile page:
+
 
 Packages:
 - service: com.notefinder.service
