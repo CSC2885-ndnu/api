@@ -63,7 +63,7 @@ public class UserDaoImpl implements UserDao{
 	
 	
 	public List<User> getUser(){    
-	    return template.query("SELECT * FROM user",new RowMapper<User>(){    
+	    return template.query("SELECT id, firstName, lastName, studentID, email, password, avatar, isAdmin, flagged, createdTS FROM user",new RowMapper<User>(){    
 	        public User mapRow(ResultSet rs, int row) throws SQLException {    
 	            User u=new User();    
 	            u.setUser_id(rs.getInt(1));    

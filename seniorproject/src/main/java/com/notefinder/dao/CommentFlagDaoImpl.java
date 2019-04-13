@@ -4,11 +4,9 @@ import java.util.List;
 import java.sql.ResultSet;    
 import java.sql.SQLException;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.CommentFlag;
-import com.notefinder.models.Course;
 
 public class CommentFlagDaoImpl implements CommentFlagDao {
 	JdbcTemplate template;
