@@ -39,17 +39,14 @@ public class EnrolledDaoImpl implements EnrolledDao {
 	}
 	
 	public List<EnrolledAdmin> getEnrolledForAdmin() {
-		return template.query("select u.firstName, u.lastName, u.studentID from user u inner join enrolled e on u.user_id = e.userID inner join course c on e.courseID = c.course_id",new RowMapper<EnrolledAdmin>(){    
+		return template.query("select distinct u.studentID, u.firstName, u.lastName from user u inner join enrolled e on u.id = e.userID inner join course c on e.courseID = c.id;",new RowMapper<EnrolledAdmin>(){    
 	        public EnrolledAdmin mapRow(ResultSet rs, int row) throws SQLException {    
-	            EnrolledAdmin e=new EnrolledAdmin();    
-	            e.setEnrolledFirstName(rs.getString(1));    
-	            e.setEnrolledLastName(rs.getString(2));
-	            e.setEnrolledStudentID(rs.getInt(3));
+	            EnrolledAdmin e=new EnrolledAdmin(); 
+	            e.setEnrolledStudentID(rs.getInt(1));
+	            e.setEnrolledFirstName(rs.getString(2));    
+	            e.setEnrolledLastName(rs.getString(3));
 	            return e;
 	        }    
 	    });
 	}
-	
-	
-
 }

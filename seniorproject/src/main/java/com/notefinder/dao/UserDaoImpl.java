@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 			+ "'," + u.getStudentID() + ",'" + u.getEmail() +  "','" + u.getPassword()
 			+ "','" + u.getAvatar() + "'," + false + "," + false
 			+ ", now())";
-				
+		System.out.print("I'm here save");
 		return template.update(sql);
 	}
 	
@@ -34,6 +34,7 @@ public class UserDaoImpl implements UserDao{
 		+ "', password='" + u.getPassword() + "', avatar='" 
 		+ u.getAvatar() + "', isAdmin=" + u.getIsAdmin() 
 		+ ", flagged=" + u.getFlagged() + ", createdTS=" + ", now() where id=" + u.getUser_id();
+		System.out.print("I'm here Update");
 		return template.update(sql);
 	}
 	

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div align="center">
-        <form:form action="viewuser" method="post" commandName="userForm">
+        <form:form action="viewUser" method="post" commandName="userForm">
             <table border="0">
                 <tr>
                     <td colspan="2" align="center"><h2>Add User</h2></td>
@@ -38,14 +38,6 @@
                 <tr>
                     <td>Avatar:</td>
                     <td><form:input path="avatar" /></td>
-                </tr>
-                <tr>
-                    <td>isAdmin (0,1):</td>
-                    <td><form:input path="isAdmin" /></td>
-                </tr>
-                <tr>
-                    <td>Flagged (0,1):</td>
-                    <td><form:input path="flagged" /></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center"><input type="submit" value="Add to User Table" /></td>
