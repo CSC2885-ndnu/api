@@ -20,6 +20,15 @@ public class UserController {
 	
     @Autowired    
     UserManager manager;
+
+    @RequestMapping(value = "/userLogin/{userName}/{password}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<User> tryLogin(@PathVariable String userName, @PathVariable String password) {
+        User user = manager.getUserByNameAndPassword(userName, password);
+        if(user == null){
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
     
     @RequestMapping(value = "/usersjson/", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<User>> listAllUsers() {
