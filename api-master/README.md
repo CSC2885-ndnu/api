@@ -2,10 +2,10 @@
 Backend
 =======
 Team Members and their tables:
-- Ahmed: User
-- Megan: Post + enrolled
-- Naomi: Course + commentsFlag
-- Martin: Comments
+- Ahmed: User [Completed]
+- Megan: Post + enrolled [Completed]
+- Naomi: Course + commentsFlag [Completed]
+- Martin: Comments [Completed]
 - Marc: Attachments
 - Nadege: post_flag
 - Jack:
@@ -21,18 +21,20 @@ Martin
 - LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME):
 Martin
 
-Courses enrolled in:
+- Courses enrolled in: [Completed]
 Naomi
 
 - Showing your recent submissions:
 Naomi
 
-- Course Page: 
-(when user clicks on a course, shows all the notes of that course)
+- Course Page (when user clicks on a course, shows all the notes of that course):
+
 
 - VIEW POST PAGE:
+Megan
 
 - Profile page:
+Ahmed
 
 
 Packages:

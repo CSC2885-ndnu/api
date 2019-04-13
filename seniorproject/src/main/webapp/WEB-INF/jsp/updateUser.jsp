@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <td>ID:</td>
-                    <td><form:input  path="user_id" /></td>
+                    <td><form:input path="user_id" /></td>
                 </tr>
                 <tr>
                     <td>First Name:</td>
