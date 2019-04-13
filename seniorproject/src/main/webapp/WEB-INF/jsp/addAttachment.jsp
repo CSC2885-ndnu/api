@@ -16,10 +16,6 @@
                     <td colspan="2" align="center"><h2>Add Attachment</h2></td>
                 </tr>
                 <tr>
-                    <td>Id:</td>
-                    <td><form:input path="id" /></td>
-                </tr>
-                <tr>
                     <td>Post Id:</td>
                     <td><form:input path="postId" /></td>
                 </tr>

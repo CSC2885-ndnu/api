@@ -21,12 +21,12 @@ public class AttachmentDaoImpl implements AttachmentDao
 	}
 	
 	public int save(Attachments a) {
-		String sql = "insert into attachments (id, postId, link, type)" + "values(" + a.getId() + "," + a.getPostId() + ",'" + a.getLink() + "','" + a.getType() +  "')";
+		String sql = "insert into attachments ( postId, link, type)" + "values("  + a.getPostId() + ",'" + a.getLink() + "','" + a.getType() +  "')";
 		return template.update(sql);
 	}
 	
 	public int update(Attachments a) {
-		String sql = "update attachments set id=" + a.getId() + ", postId=" + a.getPostId() + ", link=" + a.getLink() + ", type=" + a.getType() + "";
+		String sql = "update attachments set postId=" + a.getPostId() + ", link='" + a.getLink() + "', type='" + a.getType() + "' where id =" + a.getId() ;
 		return template.update(sql);
 	}
 	

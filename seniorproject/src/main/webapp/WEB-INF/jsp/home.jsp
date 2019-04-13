@@ -47,6 +47,7 @@
  <a href="viewAttachment">View Attachments</a>
  <a href="addAttachment">Add Attachment</a>
  <a href="updateAttachment">Update Attachment</a>
+ <a href="deleteAttachment">Delete Attachment</a>
  <br>
  <br>
  Enrolled:
