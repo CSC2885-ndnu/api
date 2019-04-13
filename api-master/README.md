@@ -15,10 +15,10 @@ Tables needs to be built:
 
 
 JSON:
-- LANDING PAGE:
+- LANDING PAGE: [Completed]
 Martin
 
-- LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME):
+- LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME): [Completed]
 Martin
 
 - Courses enrolled in: [Completed]
@@ -27,14 +27,12 @@ Naomi
 - Showing your recent submissions:
 Naomi
 
-- Course Page (when user clicks on a course, shows all the notes of that course):
-
+- Course Page (when user clicks on a course, shows all the notes of that course): [Completed]
+Martin
 
 - VIEW POST PAGE:
 Megan
 
-- Profile page:
-Ahmed
 
 
 Packages:
