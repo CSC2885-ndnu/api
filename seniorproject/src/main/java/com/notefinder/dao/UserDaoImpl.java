@@ -45,23 +45,16 @@ public class UserDaoImpl implements UserDao{
 	    return template.update(sql);    
 	} 
 	
-	public List<User> getUserById(int id){
-		return template.query("select * from user where id="+id,new RowMapper<User>(){    
-	        public User mapRow(ResultSet rs, int row) throws SQLException {
-	            User u=new User();    
-	            u.setUser_id(rs.getInt(1));    
-	            u.setFirstName(rs.getString(2));    
-	            u.setLastName(rs.getString(3));    
-	            u.setStudentID(rs.getInt(4));  
-	            u.setEmail(rs.getString(5));
-	            u.setPassword(rs.getString(6));
-	            u.setAvatar(rs.getString(7));
-	            u.setIsAdmin(rs.getBoolean(8));	            
-	            u.setFlagged(rs.getBoolean(9));
-	            u.setCreatedTS(rs.getTimestamp(10));
-	            return u; 
-	            }
-	    }); 
+	public User getUserById(int id){
+	  	try
+	  	{
+	  		String sql="select * from user where id=?";
+			return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<User>(User.class));
+	  	}
+	  	catch (DataAccessException ex)
+	  	{
+	  		return null;
+	  	}
 	}
 	
 	
