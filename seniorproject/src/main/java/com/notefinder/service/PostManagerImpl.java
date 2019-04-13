@@ -39,4 +39,8 @@ public class PostManagerImpl implements PostManager {
 	public List<PostLanding> getPostsForLanding(int numberOfPosts) {
 		return dao.getPostsForLanding(numberOfPosts);
 	}
+	
+	public List<Post> getPostsForUser(int id) {
+		return dao.getPostsForUser(id);
+	}
 }

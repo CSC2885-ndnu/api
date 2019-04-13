@@ -4,11 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;    
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostLanding;
+import com.notefinder.models.User;
 
  
 public class PostDaoImpl implements PostDao
@@ -63,6 +65,23 @@ public class PostDaoImpl implements PostDao
 	            p.setSubmission_title(rs.getString(2));
 	            p.setSubmission_course_name(rs.getString(3));
 	            p.setSubmission_date(rs.getTimestamp(4));
+	            return p;    
+	        }    
+	    });
+	}
+	
+	public List<Post> getPostsForUser(int id)
+	{
+	    return template.query("select id, title, courseID, postDate, note, userID, flagged from post where userId=" + id,new RowMapper<Post>(){    
+	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
+	            Post p=new Post();    
+	            p.setId(rs.getInt(1));    
+	            p.setTitle(rs.getString(2));    
+	            p.setCourseID(rs.getInt(3));  
+	            p.setPostDate(rs.getTimestamp(4));
+	            p.setNote(rs.getString(5));
+	            p.setUserID(rs.getInt(6));
+	            p.setFlagged(rs.getBoolean(7));
 	            return p;    
 	        }    
 	    });
