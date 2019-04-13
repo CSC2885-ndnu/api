@@ -20,6 +20,24 @@ public class UserController {
 	
     @Autowired    
     UserManager manager;
+
+    @RequestMapping(value = "/userLogin/{userName}/{password}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<User> tryLogin(@PathVariable String userName, @PathVariable String password) {
+        User user = manager.getUserByNameAndPassword(userName, password);
+        if(user == null){
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/userById/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        User user = manager.getUserById(id);
+        if(user == null){
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
     
     @RequestMapping(value = "/usersjson/", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<User>> listAllUsers() {
@@ -55,7 +73,7 @@ public class UserController {
     // Update users (Need Work)
     @RequestMapping(value = "/updateUser/{id}")
     public String editUser(@PathVariable int id, Model m) {
-    	List<User> user = manager.getUserById(id);  
+    	User user = manager.getUserById(id);  
         m.addAttribute(user);
         return "updateUser";
     }
@@ -94,7 +112,7 @@ public class UserController {
     
     @RequestMapping(value = "/getUser", method = RequestMethod.POST)    
     public String viewGetUser(@ModelAttribute("user_id") User user, Model m) {    
-    	List<User> list= manager.getUserById(user.getUser_id());   
+    	User list= manager.getUserById(user.getUser_id());   
         System.out.println(user.getUser_id());
         System.out.println(list);
         

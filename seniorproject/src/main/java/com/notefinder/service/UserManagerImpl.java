@@ -26,11 +26,16 @@ public class UserManagerImpl implements UserManager {
 		return dao.delete(id);
 	}
 	
-	public List<User> getUserById(int id) {
+	public User getUserById(int id) {
 		return dao.getUserById(id);
 	}
 	
 	public List<User> getUser() {
 		return dao.getUser();
+	}
+	
+	public User getUserByNameAndPassword(String userName, String password)
+	{
+		return dao.getUserByNameAndPassword(userName, password);
 	}
 }

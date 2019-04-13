@@ -9,6 +9,7 @@ public interface UserDao {
 	public int save(User u);
 	public int update(User u);
 	public int delete(int id);
-	public List<User> getUserById(int id);
+	public User getUserById(int id);
 	public List<User> getUser();
+	public User getUserByNameAndPassword(String userName, String password);
 }
