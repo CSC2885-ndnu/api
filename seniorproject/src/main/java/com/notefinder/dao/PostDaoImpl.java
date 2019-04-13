@@ -40,7 +40,7 @@ public class PostDaoImpl implements PostDao
 	}
 	
 	public List<Post> getPosts(){    
-	    return template.query("select id, title, courseID, classDate, postDate, note, userID, flagged from post",new RowMapper<Post>(){    
+	    return template.query("select id, title, courseID, postDate, note, userID, flagged from post",new RowMapper<Post>(){    
 	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
 	            Post p=new Post();    
 	            p.setId(rs.getInt(1));    
