@@ -33,4 +33,9 @@ public class UserManagerImpl implements UserManager {
 	public List<User> getUser() {
 		return dao.getUser();
 	}
+	
+	public User getUserByNameAndPassword(String userName, String password)
+	{
+		return dao.getUserByNameAndPassword(userName, password);
+	}
 }

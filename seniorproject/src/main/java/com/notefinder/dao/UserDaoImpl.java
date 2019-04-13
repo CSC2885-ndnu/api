@@ -1,11 +1,13 @@
 package com.notefinder.dao;
 
-import java.sql.ResultSet;    
+import java.sql.ResultSet;
 import java.sql.SQLException;    
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.dao.DataAccessException;
 
 import com.notefinder.models.User;
 
@@ -79,7 +81,19 @@ public class UserDaoImpl implements UserDao{
 	            return u;    
 	        }    
 	    });
-
-}
+	}
+	
+	public User getUserByNameAndPassword(String userName, String password)
+	{
+	  	try
+	  	{
+	  		String sql="select * from user where studentID=? and password=?";
+			return template.queryForObject(sql,  new Object[] {userName, password}, new BeanPropertyRowMapper<User>(User.class));
+	  	}
+	  	catch (DataAccessException ex)
+	  	{
+	  		return null;
+	  	}
+	}
 }
 	
