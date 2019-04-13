@@ -22,6 +22,15 @@ public class PostController {
     @Autowired    
     PostManager manager;
     
+    @RequestMapping(value = "/getUserPosts/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<Post>> getUserPosts(@PathVariable int id) {
+        List<Post> posts = manager.getPostsForUser(id);
+        if(posts.isEmpty()){
+            return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
+    }
+    
     @RequestMapping(value = "/landingpage/{numberOfPosts}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<PostLanding>> getPostInfoForLanding(@PathVariable int numberOfPosts) {
         List<PostLanding> posts = manager.getPostsForLanding(numberOfPosts);
