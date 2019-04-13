@@ -9,6 +9,6 @@ public interface EnrolledManager {
 	public int save(Enrolled e);
 	public int delete(int courseID, int userID);
 	public List<Enrolled> getEnrolled();
-	public List<EnrolledAdmin> getEnrolledForAdmin();
+	public List<EnrolledAdmin> getEnrolledForAdmin(int id);
 
 }

@@ -4,10 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;    
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;    
 import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.Enrolled;
 import com.notefinder.models.EnrolledAdmin;
+import com.notefinder.models.Post;
 
 public class EnrolledDaoImpl implements EnrolledDao {
 	
@@ -38,8 +40,8 @@ public class EnrolledDaoImpl implements EnrolledDao {
 	    });
 	}
 	
-	public List<EnrolledAdmin> getEnrolledForAdmin() {
-		return template.query("select distinct u.studentID, u.firstName, u.lastName from user u inner join enrolled e on u.id = e.userID inner join course c on e.courseID = c.id;",new RowMapper<EnrolledAdmin>(){    
+	public List<EnrolledAdmin> getEnrolledForAdmin(int id) {
+		return template.query("select distinct u.studentID, u.firstName, u.lastName from user u, enrolled e, course c where c.id = 1 and u.id = e.userID and e.courseID = c.id;",new RowMapper<EnrolledAdmin>(){    
 	        public EnrolledAdmin mapRow(ResultSet rs, int row) throws SQLException {    
 	            EnrolledAdmin e=new EnrolledAdmin(); 
 	            e.setEnrolledStudentID(rs.getInt(1));

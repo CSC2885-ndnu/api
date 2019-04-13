@@ -25,8 +25,9 @@ public class EnrolledManagerImpl implements EnrolledManager {
 	public List<Enrolled> getEnrolled() {
 		return dao.getEnrolled();
 	}
-	public List<EnrolledAdmin> getEnrolledForAdmin() {
-		return dao.getEnrolledForAdmin();
+	
+	public List<EnrolledAdmin> getEnrolledForAdmin(int id) {
+		return dao.getEnrolledForAdmin(id);
 	}
 
 }
