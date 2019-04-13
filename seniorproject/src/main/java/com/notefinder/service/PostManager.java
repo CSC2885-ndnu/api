@@ -12,4 +12,5 @@ public interface PostManager {
 	public List<Post> getPosts();
 	public List<PostLanding> getPostsForLanding(int numberOfPosts);
 	public List<Post> getPostsForUser(int id);
+	public List<Post> getCoursePosts(int id);
 }
