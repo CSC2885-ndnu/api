@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.notefinder.models.Course;
+import com.notefinder.models.User;
  
 public class CourseDaoImpl implements CourseDao
 {
@@ -99,6 +100,27 @@ public class CourseDaoImpl implements CourseDao
 	            p.setProfessor(rs.getString(11));
 	            p.setLink(rs.getString(12));
 	            return p;    
+	        }    
+	    });
+	}
+	
+	public List<User> getCourseStudents(int id){
+	    return template.query("SELECT u.id, u.firstName, u.lastName, u.studentID, u.email, u.password, u.avatar, u.isAdmin, u.flagged, u.createdTS " + 
+	    		"FROM user u, course c, enrolled e " + 
+	    		"where c.id = " + id + " and c.id = e.courseID and e.userID = u.id",new RowMapper<User>(){    
+	        public User mapRow(ResultSet rs, int row) throws SQLException {    
+	            User u=new User();    
+	            u.setUser_id(rs.getInt(1));    
+	            u.setFirstName(rs.getString(2));    
+	            u.setLastName(rs.getString(3));    
+	            u.setStudentID(rs.getInt(4));  
+	            u.setEmail(rs.getString(5));
+	            u.setPassword(rs.getString(6));
+	            u.setAvatar(rs.getString(7));
+	            u.setIsAdmin(rs.getBoolean(8));	            
+	            u.setFlagged(rs.getBoolean(9));
+	            u.setCreatedTS(rs.getTimestamp(10));
+	            return u;    
 	        }    
 	    });
 	}
