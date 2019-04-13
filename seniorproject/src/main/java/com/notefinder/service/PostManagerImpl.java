@@ -43,4 +43,8 @@ public class PostManagerImpl implements PostManager {
 	public List<Post> getPostsForUser(int id) {
 		return dao.getPostsForUser(id);
 	}
+	
+	public List<Post> getCoursePosts(int id){
+		return dao.getCoursePosts(id);
+	}
 }
