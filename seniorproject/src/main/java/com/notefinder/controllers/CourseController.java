@@ -13,12 +13,14 @@ import org.springframework.http.ResponseEntity;
 
 import com.notefinder.models.Course; 
 import com.notefinder.models.CourseId;
+import com.notefinder.models.User;
 import com.notefinder.service.CourseManager;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Map;
+
 @Controller    
 public class CourseController {    
     @Autowired    
@@ -42,6 +44,16 @@ public class CourseController {
             return new ResponseEntity<List<Course>>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<List<Course>>(courses, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/getCourseStudents/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<User>> getCourseStudents(@PathVariable("id") int id) {
+        List<User> courses = manager.getCourseStudents(id);
+        if (courses == null) {
+            System.out.println("User with id " + id + " not found");
+            return new ResponseEntity<List<User>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<List<User>>(courses, HttpStatus.OK);
     }
     
     @RequestMapping("/courses")    

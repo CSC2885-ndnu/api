@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.notefinder.dao.CourseDao;
 import com.notefinder.models.Course;
+import com.notefinder.models.User;
 
 @Service("courseManager")
 public class CourseManagerImpl implements CourseManager {
@@ -39,4 +40,7 @@ public class CourseManagerImpl implements CourseManager {
 		return dao.getUserCourses(id);
 	}
 
+	public List<User> getCourseStudents(int id){
+		return dao.getCourseStudents(id);
+	}
 }

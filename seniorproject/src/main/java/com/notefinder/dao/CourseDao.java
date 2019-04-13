@@ -1,7 +1,8 @@
 package com.notefinder.dao;
 
 import java.util.List;
-import com.notefinder.models.Course; 
+import com.notefinder.models.Course;
+import com.notefinder.models.User; 
 
 public interface CourseDao {
 	public int save(Course p);
@@ -10,4 +11,5 @@ public interface CourseDao {
 	public List<Course> getCourseById(int id);
 	public List<Course> getCourse();
 	public List<Course> getUserCourses(int id);
+	public List<User> getCourseStudents(int id);
 }
