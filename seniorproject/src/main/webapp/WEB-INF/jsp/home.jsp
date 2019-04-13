@@ -47,3 +47,11 @@
  <a href="viewAttachment">View Attachments</a>
  <a href="addAttachment">Add Attachment</a>
  <a href="updateAttachment">Update Attachment</a>
+ <br>
+ <br>
+ Enrolled:
+ <br>
+ <a href="enrolled">View Enrolled</a>
+ <a href="addEnrolled">Add Enrolled</a>
+ <a href="deleteEnrolled">deleteEnrolled</a>
+ <br>
