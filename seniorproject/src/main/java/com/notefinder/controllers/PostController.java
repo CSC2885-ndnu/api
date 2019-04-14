@@ -16,29 +16,12 @@ import com.notefinder.models.Post;
 import com.notefinder.models.PostID;
 import com.notefinder.service.PostManager;
 import com.notefinder.models.PostLanding;
+import com.notefinder.models.PostView;
 
 @Controller    
 public class PostController {    
     @Autowired    
     PostManager manager;
-    
-    @RequestMapping(value = "/getCoursePosts/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Post>> getCoursePosts(@PathVariable int id) {
-        List<Post> posts = manager.getCoursePosts(id);
-        if(posts.isEmpty()){
-            return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
-    }
-    
-    @RequestMapping(value = "/getUserPosts/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Post>> getUserPosts(@PathVariable int id) {
-        List<Post> posts = manager.getPostsForUser(id);
-        if(posts.isEmpty()){
-            return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
-    }
     
     @RequestMapping(value = "/landingpage/{numberOfPosts}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<PostLanding>> getPostInfoForLanding(@PathVariable int numberOfPosts) {
@@ -47,6 +30,17 @@ public class PostController {
             return new ResponseEntity<List<PostLanding>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<PostLanding>>(posts, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/viewpostpage/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<PostView> getPostsForView(@PathVariable int id) {
+        List<PostView> posts = manager.getPostsForView(id);
+        PostView postView = posts.get(0);
+        postView.setCommentList(manager.getCommentsForView(id));
+        if(posts.isEmpty()){
+            return new ResponseEntity<PostView>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<PostView>(postView, HttpStatus.OK);
     }
     
     @RequestMapping("/posts")

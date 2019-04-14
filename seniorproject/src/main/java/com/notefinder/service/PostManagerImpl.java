@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.notefinder.dao.PostDao;
+import com.notefinder.models.CommentPostView;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostLanding;
+import com.notefinder.models.PostView;
 
 @Service("postManager")
 public class PostManagerImpl implements PostManager {
@@ -40,11 +42,11 @@ public class PostManagerImpl implements PostManager {
 		return dao.getPostsForLanding(numberOfPosts);
 	}
 	
-	public List<Post> getPostsForUser(int id) {
-		return dao.getPostsForUser(id);
+	public List<PostView> getPostsForView(int id) {
+		return dao.getPostsForView(id);
 	}
 	
-	public List<Post> getCoursePosts(int id){
-		return dao.getCoursePosts(id);
+	public List<CommentPostView> getCommentsForView(int id) {
+		return dao.getCommentsForView(id);
 	}
 }

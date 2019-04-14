@@ -1,8 +1,11 @@
 package com.notefinder.service;
 
 import java.util.List;
+
+import com.notefinder.models.CommentPostView;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostLanding;
+import com.notefinder.models.PostView;
 
 public interface PostManager {
 	public int save(Post p);
@@ -11,6 +14,6 @@ public interface PostManager {
 	public Post getPostById(int id);
 	public List<Post> getPosts();
 	public List<PostLanding> getPostsForLanding(int numberOfPosts);
-	public List<Post> getPostsForUser(int id);
-	public List<Post> getCoursePosts(int id);
+	public List<PostView> getPostsForView(int id);
+	public List<CommentPostView> getCommentsForView(int id);
 }
