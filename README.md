@@ -15,22 +15,22 @@ Tables needs to be built:
 
 
 JSON:
-- LANDING PAGE: [Completed]
+- [Completed] LANDING PAGE:
 Martin
 
-- LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME): [Completed]
+- [Completed] LOGGED IN (USER’S HOME PAGE FOR THE FIRST TIME):
 Martin
 
-- Courses enrolled in: [Completed]
+- [Completed] Courses enrolled in:
 Naomi
 
-- Showing your recent submissions:
+- [Completed] Showing your recent submissions:
 Naomi
 
-- Course Page (when user clicks on a course, shows all the notes of that course): [Completed]
+- [Completed] Course Page (when user clicks on a course, shows all the notes of that course):
 Martin
 
-- VIEW POST PAGE:
+- [Completed] VIEW POST PAGE:
 Megan
 
 
