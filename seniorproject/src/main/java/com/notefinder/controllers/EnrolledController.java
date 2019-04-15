@@ -21,7 +21,7 @@ public class EnrolledController {
 	@Autowired    
     EnrolledManager manager;
 	
-	@RequestMapping(value = "/enrolledadmin", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/enrolledadmin/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<EnrolledAdmin>> getEnrolledInfoForAdmin(@PathVariable int id) {
         List<EnrolledAdmin> enrolled = manager.getEnrolledForAdmin(id);
         if(enrolled.isEmpty()){
