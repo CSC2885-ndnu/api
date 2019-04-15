@@ -41,7 +41,7 @@ public class EnrolledDaoImpl implements EnrolledDao {
 	}
 	
 	public List<EnrolledAdmin> getEnrolledForAdmin(int id) {
-		return template.query("select distinct u.studentID, u.firstName, u.lastName from user u, enrolled e, course c where c.id = 1 and u.id = e.userID and e.courseID = c.id;",new RowMapper<EnrolledAdmin>(){    
+		return template.query("select distinct u.studentID, u.firstName, u.lastName from user u, enrolled e, course c where c.id =" + id + " and u.id = e.userID and e.courseID = c.id;",new RowMapper<EnrolledAdmin>(){    
 	        public EnrolledAdmin mapRow(ResultSet rs, int row) throws SQLException {    
 	            EnrolledAdmin e=new EnrolledAdmin(); 
 	            e.setEnrolledStudentID(rs.getInt(1));
