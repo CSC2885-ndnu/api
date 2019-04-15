@@ -40,27 +40,30 @@ public class UserDaoImpl implements UserDao{
 		return template.update(sql);
 	}
 	
-	public int delete(int studentID){    
+	public int delete(int studentID){
+
 	    String sql="DELETE FROM user WHERE studentID="+studentID+"";    
-	    return template.update(sql);    
+	    return template.update(sql);   
 	} 
 	
 	public User getUserById(int id){
 	  	try
-	  	{
-	  		String sql="select * from user where id=?";
-			return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<User>(User.class));
-	  	}
+	  		{
+	  			String sql="select * from user where id=?";
+	  			return template.queryForObject(sql,  new Object[] {id}, new BeanPropertyRowMapper<User>(User.class));
+	  		}
 	  	catch (DataAccessException ex)
-	  	{
+	  		{
 	  		return null;
-	  	}
+	  		}
 	}
 	
 	
-	public List<User> getUser(){    
-	    return template.query("SELECT id, firstName, lastName, studentID, email, password, avatar, isAdmin, flagged, createdTS FROM user",new RowMapper<User>(){    
-	        public User mapRow(ResultSet rs, int row) throws SQLException {    
+	public List<User> getUser(){
+		try
+	  		{
+				return template.query("SELECT id, firstName, lastName, studentID, email, password, avatar, isAdmin, flagged, createdTS FROM user",new RowMapper<User>(){    
+				public User mapRow(ResultSet rs, int row) throws SQLException {    
 	            User u=new User();    
 	            u.setUser_id(rs.getInt(1));    
 	            u.setFirstName(rs.getString(2));    
@@ -72,22 +75,25 @@ public class UserDaoImpl implements UserDao{
 	            u.setIsAdmin(rs.getBoolean(8));	            
 	            u.setFlagged(rs.getBoolean(9));
 	            u.setCreatedTS(rs.getTimestamp(10));
-	            return u;    
-	        }    
-	    });
+	            return u;}});
+		  	}
+		  	catch (DataAccessException ex)
+		  	{
+		  		return null;
+		  	}
 	}
 	
 	public User getUserByNameAndPassword(String userName, String password)
 	{
 	  	try
-	  	{
+	  		{
 	  		String sql="select * from user where studentID=? and password=?";
 			return template.queryForObject(sql,  new Object[] {userName, password}, new BeanPropertyRowMapper<User>(User.class));
-	  	}
+	  		}
 	  	catch (DataAccessException ex)
-	  	{
+	  		{
 	  		return null;
-	  	}
+	  		}
 	}
 }
 	
