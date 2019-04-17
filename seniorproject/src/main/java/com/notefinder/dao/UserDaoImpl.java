@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.dao.DataAccessException;
 
 import com.notefinder.models.User;
+import com.notefinder.models.UserPass;
 
 public class UserDaoImpl implements UserDao{
 	
@@ -94,6 +95,24 @@ public class UserDaoImpl implements UserDao{
 	  		{
 	  		return null;
 	  		}
+	}
+	
+	public List<UserPass> getPassword(int studentID) {
+		try
+  		{
+			return template.query("SELECT studentID,password FROM user where studentID="+studentID,new RowMapper<UserPass>(){    
+			public UserPass mapRow(ResultSet rs, int row) throws SQLException {    
+            UserPass u=new UserPass();    
+            u.setStudentID(rs.getInt(1));    
+            u.setPassword(rs.getString(2)); 
+            
+            System.out.println(u.getStudentID() + u.getPassword());
+            return u;}});
+	  	}
+	  	catch (DataAccessException ex)
+	  	{
+	  		return null;
+	  	}
 	}
 }
 	
