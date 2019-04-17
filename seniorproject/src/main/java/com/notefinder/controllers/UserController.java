@@ -40,14 +40,13 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/getPassword/{studentID}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<UserPass> getPassword(@PathVariable int studentID) {
-    	List<UserPass> user = manager.getPassword(studentID);
-    	System.out.println(user);
+    @RequestMapping(value = "/getPassword/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<UserPass>> getPassword(@PathVariable int id) {
+        List<UserPass> user = manager.getPassword(id);
         if(user == null){
-            return new ResponseEntity<UserPass>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
+            return new ResponseEntity<List<UserPass>>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<UserPass>(HttpStatus.OK);
+        return new ResponseEntity<List<UserPass>>(user, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/usersjson/", method = RequestMethod.GET, produces = "application/json")
