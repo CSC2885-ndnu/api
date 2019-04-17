@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notefinder.service.UserManager;
 import com.notefinder.models.User;
+import com.notefinder.models.UserPass;
 
 @Controller
 public class UserController {
@@ -37,6 +38,15 @@ public class UserController {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/getPassword/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<UserPass>> getPassword(@PathVariable int id) {
+        List<UserPass> user = manager.getPassword(id);
+        if(user == null){
+            return new ResponseEntity<List<UserPass>>(HttpStatus.NOT_FOUND);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<UserPass>>(user, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/usersjson/", method = RequestMethod.GET, produces = "application/json")

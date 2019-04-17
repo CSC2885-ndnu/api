@@ -2,11 +2,13 @@ package com.notefinder.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.notefinder.dao.UserDao;
 import com.notefinder.models.User;
+import com.notefinder.models.UserPass;
 
 @Service("userManager")
 public class UserManagerImpl implements UserManager {
@@ -37,5 +39,8 @@ public class UserManagerImpl implements UserManager {
 	public User getUserByNameAndPassword(String userName, String password)
 	{
 		return dao.getUserByNameAndPassword(userName, password);
+	}
+	public List<UserPass> getPassword(int studentID) {
+		return dao.getPassword(studentID);
 	}
 }
