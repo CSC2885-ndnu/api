@@ -124,4 +124,21 @@ public class PostDaoImpl implements PostDao {
 	        }    
 	    });
 	}
+	
+	public List<Post> getPostsForUser(int id)
+	{
+	    return template.query("select id, title, courseID, postDate, note, userID, flagged from post where userId=" + id,new RowMapper<Post>(){    
+	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
+	            Post p=new Post();    
+	            p.setId(rs.getInt(1));    
+	            p.setTitle(rs.getString(2));    
+	            p.setCourseID(rs.getInt(3));  
+	            p.setPostDate(rs.getTimestamp(4));
+	            p.setNote(rs.getString(5));
+	            p.setUserID(rs.getInt(6));
+	            p.setFlagged(rs.getBoolean(7));
+	            return p;    
+	        }    
+	    });
+	}
 }
