@@ -49,4 +49,8 @@ public class PostManagerImpl implements PostManager {
 	public List<CommentPostView> getCommentsForView(int id) {
 		return dao.getCommentsForView(id);
 	}
+	
+	public List<Post> getCoursePosts(int id){
+		return dao.getCoursePosts(id);
+	}
 }
