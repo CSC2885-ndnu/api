@@ -17,4 +17,5 @@ public interface PostDao {
 	public List<PostView> getPostsForView(int id);
 	public List<CommentPostView> getCommentsForView(int id);
 	public List<Post> getCoursePosts(int id);
+	public List<Post> getPostsForUser(int id);
 }
