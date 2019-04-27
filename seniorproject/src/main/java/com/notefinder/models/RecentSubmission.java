@@ -10,7 +10,22 @@ public class RecentSubmission {
 	private String submission_notes;
 	private String submission_link;
 	private String submission_flag;
+	private int courseID;
+	private String description;
 	
+	
+	public int getCourseID() {
+		return courseID;
+	}
+	public void setCourseID(int courseID) {
+		this.courseID = courseID;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public int getPostId() {
 		return postId;
 	}
