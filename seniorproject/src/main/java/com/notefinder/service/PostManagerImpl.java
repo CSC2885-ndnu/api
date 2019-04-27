@@ -3,6 +3,7 @@ package com.notefinder.service;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.notefinder.models.CommentPostView;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostLanding;
 import com.notefinder.models.PostView;
+import com.notefinder.models.PostWithCourseDescription;
 
 @Service("postManager")
 public class PostManagerImpl implements PostManager {
@@ -54,7 +56,7 @@ public class PostManagerImpl implements PostManager {
 		return dao.getCoursePosts(id);
 	}
 	
-	public List<Post> getPostsForUser(int id) {
+	public List<PostWithCourseDescription> getPostsForUser(int id) {
 		return dao.getPostsForUser(id);
 	}
 }

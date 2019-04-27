@@ -1,6 +1,7 @@
 package com.notefinder.dao;
 
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import com.notefinder.models.Post;
 import com.notefinder.models.PostLanding;
 import com.notefinder.models.PostView;
+import com.notefinder.models.PostWithCourseDescription;
 import com.notefinder.models.CommentPostView;
 
 public class PostDaoImpl implements PostDao {
@@ -125,11 +127,11 @@ public class PostDaoImpl implements PostDao {
 	    });
 	}
 	
-	public List<Post> getPostsForUser(int id)
+	public List<PostWithCourseDescription> getPostsForUser(int id)
 	{
-	    return template.query("select id, title, courseID, postDate, note, userID, flagged from post where userId=" + id,new RowMapper<Post>(){    
-	        public Post mapRow(ResultSet rs, int row) throws SQLException {    
-	            Post p=new Post();    
+	    return template.query("select p.id, p.title, p.courseID, p.postDate, p.note, p.userID, p.flagged, c.description as description from post p JOIN course c on p.courseID = c.id where userId= " + id + " order by postDate desc",new RowMapper<PostWithCourseDescription>(){    
+	        public PostWithCourseDescription mapRow(ResultSet rs, int row) throws SQLException {    
+	        	PostWithCourseDescription p=new PostWithCourseDescription();    
 	            p.setId(rs.getInt(1));    
 	            p.setTitle(rs.getString(2));    
 	            p.setCourseID(rs.getInt(3));  
@@ -137,6 +139,7 @@ public class PostDaoImpl implements PostDao {
 	            p.setNote(rs.getString(5));
 	            p.setUserID(rs.getInt(6));
 	            p.setFlagged(rs.getBoolean(7));
+	            p.setDescription(rs.getString(8));
 	            return p;    
 	        }    
 	    });

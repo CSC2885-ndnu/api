@@ -26,7 +26,11 @@
  	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     
-	    
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">    
+		<property name="prefix" value="/WEB-INF/jsp/"></property>    
+		<property name="suffix" value=".jsp"></property>
+		    
+	</bean>    
     
 	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">    
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
