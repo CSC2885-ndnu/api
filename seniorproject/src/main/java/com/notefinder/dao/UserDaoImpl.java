@@ -36,7 +36,7 @@ public class UserDaoImpl implements UserDao{
 		+ u.getStudentID() + ", email='" + u.getEmail() 
 		+ "', password='" + u.getPassword() + "', avatar='" 
 		+ u.getAvatar() + "', isAdmin=" + u.getIsAdmin() 
-		+ ", flagged=" + u.getFlagged() + ", createdTS=" + ", now() where id=" + u.getUser_id();
+		+ ", flagged=" + u.getFlagged() + ", createdTS=" + ", now() where id=" + u.getId();
 		System.out.print("I'm here Update");
 		return template.update(sql);
 	}
@@ -66,7 +66,7 @@ public class UserDaoImpl implements UserDao{
 				return template.query("SELECT id, firstName, lastName, studentID, email, password, avatar, isAdmin, flagged, createdTS FROM user",new RowMapper<User>(){    
 				public User mapRow(ResultSet rs, int row) throws SQLException {    
 	            User u=new User();    
-	            u.setUser_id(rs.getInt(1));    
+	            u.setId(rs.getInt(1));    
 	            u.setFirstName(rs.getString(2));    
 	            u.setLastName(rs.getString(3));    
 	            u.setStudentID(rs.getInt(4));  

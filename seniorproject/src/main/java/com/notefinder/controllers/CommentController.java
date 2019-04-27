@@ -36,7 +36,7 @@ public class CommentController {
     @RequestMapping(value = "/addComment" , method = RequestMethod.POST)
     public String addComment(@ModelAttribute("commentForm") Comment comment, Map<String, Object> model){
     	manager.save(comment);
-        return "redirect:/viewcomment";
+        return "addComment";
     }
     
     @RequestMapping(value = "/updateComment/{id}" , method = RequestMethod.GET)
