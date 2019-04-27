@@ -1,5 +1,6 @@
 package com.notefinder.controllers;  
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import com.notefinder.models.PostID;
 import com.notefinder.service.PostManager;
 import com.notefinder.models.PostLanding;
 import com.notefinder.models.PostView;
+import com.notefinder.models.PostWithCourseDescription;
 
 @Controller    
 public class PostController {    
@@ -33,12 +35,12 @@ public class PostController {
     }
     
     @RequestMapping(value = "/getUserPosts/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Post>> getUserPosts(@PathVariable int id) {
-        List<Post> posts = manager.getPostsForUser(id);
+    public ResponseEntity<List<PostWithCourseDescription>> getUserPosts(@PathVariable int id) {
+        List<PostWithCourseDescription> posts = manager.getPostsForUser(id);
         if(posts.isEmpty()){
-            return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<List<PostWithCourseDescription>>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
+        return new ResponseEntity<List<PostWithCourseDescription>>(posts, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/landingpage/{numberOfPosts}", method = RequestMethod.GET, produces = "application/json")
