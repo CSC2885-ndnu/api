@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class User {
 
     // Variables
-    private int user_id;
+    private int id;
     private String firstName;
     private String lastName;
     private int studentID;
@@ -18,12 +18,12 @@ public class User {
 
 
     // Getters & Setters
-    public int getUser_id() {
-        return user_id;
+    public int getId() {
+        return id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -102,7 +102,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", studentID=" + studentID +

@@ -110,7 +110,7 @@ public class CourseDaoImpl implements CourseDao
 	    		"where c.id = " + id + " and c.id = e.courseID and e.userID = u.id",new RowMapper<User>(){    
 	        public User mapRow(ResultSet rs, int row) throws SQLException {    
 	            User u=new User();    
-	            u.setUser_id(rs.getInt(1));    
+	            u.setId(rs.getInt(1));    
 	            u.setFirstName(rs.getString(2));    
 	            u.setLastName(rs.getString(3));    
 	            u.setStudentID(rs.getInt(4));  
