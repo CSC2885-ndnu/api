@@ -148,11 +148,34 @@ INSERT INTO course VALUES (
 );
 
 INSERT INTO user VALUES (
-    1,
     'Megan',
     'Wong',
     100001,
     'mwong@student.ndnu.edu',
+    'password',
+    'flickr.com',
+    1,
+    0,
+    0,
+    now()
+);
+INSERT INTO user VALUES (
+    'Ahmed',
+    'AlOtaibi',
+    200001,
+    'Ahmed@student.ndnu.edu',
+    'password',
+    'flickr.com',
+    1,
+    0,
+    0,
+    now()
+);
+INSERT INTO user VALUES (
+    'Marc',
+    'Matas',
+    300001,
+    'Marc@student.ndnu.edu',
     'password',
     'flickr.com',
     0,
@@ -161,11 +184,22 @@ INSERT INTO user VALUES (
     now()
 );
 INSERT INTO user VALUES (
-    2,
-    'Megan',
-    'Wong',
-    200001,
-    'mwong@student.ndnu.edu',
+    'Naomi',
+    'Makovkin',
+    400001,
+    'Naomi@student.ndnu.edu',
+    'password',
+    'flickr.com',
+    0,
+    0,
+    0,
+    now()
+);
+INSERT INTO user VALUES (
+    'Martin',
+    'Makovkin',
+    500001,
+    'Martin@student.ndnu.edu',
     'password',
     'flickr.com',
     0,
