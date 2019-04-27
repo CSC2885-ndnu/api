@@ -9,6 +9,7 @@ public class Post {
     private String title;
     private int courseID;
     private Timestamp postDate;
+    private String postDateString;
     private String note;
     private int userID;
     private boolean flagged;
@@ -43,6 +44,7 @@ public class Post {
 
     public void setPostDate(Timestamp postDate) {
         this.postDate = postDate;
+        this.postDateString = postDate.toString();
     }
 
     public String getNote() {
@@ -67,6 +69,10 @@ public class Post {
 
     public void setFlagged(boolean flagged) {
         this.flagged = flagged;
+    }
+    
+    public String getPostDateString() {
+    	return postDateString;
     }
 
     @Override

@@ -14,4 +14,6 @@ public interface CommentDao {
 	public Comment getCommentById(int id);
 
 	public List<Comment> getComments();
+	
+	public List<Comment> getPostComments(int id);
 }

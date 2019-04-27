@@ -62,4 +62,20 @@ public class CommentDaoImpl implements CommentDao {
 			}
 		});
 	}
+	
+	public List<Comment> getPostComments(int id){
+		return template.query("select id,postID,userID,createdTS,modified,comment,flagged from comment where postID=" + id, new RowMapper<Comment>() {
+			public Comment mapRow(ResultSet rs, int row) throws SQLException {
+				Comment p = new Comment();
+				p.setId(rs.getInt(1));
+				p.setPostID(rs.getInt(2));
+				p.setUserID(rs.getInt(3));
+				p.setCreatedTS(rs.getTimestamp(4));
+				p.setModified(rs.getTimestamp(5));
+				p.setComment(rs.getString(6));
+				p.setFlagged(rs.getBoolean(7));
+				return p;
+			}
+		});
+	}
 }
