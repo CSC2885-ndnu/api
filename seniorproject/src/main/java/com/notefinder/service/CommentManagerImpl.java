@@ -32,4 +32,8 @@ public class CommentManagerImpl implements CommentManager {
 	public List<Comment> getComments() {
 		return dao.getComments();
 	}
+	
+	public List<Comment> getPostComments(int id){
+		return dao.getPostComments(id);
+	}
 }

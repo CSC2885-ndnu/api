@@ -8,7 +8,9 @@ public class Comment {
 	private int postID;
 	private int userID;
 	private Timestamp createdTS;
+	private String createdTSString;
 	private Timestamp modified;
+	private String modifiedString;
 	private String comment;
 	private Boolean flagged;
 
@@ -42,6 +44,7 @@ public class Comment {
 
 	public void setCreatedTS(Timestamp createdTS) {
 		this.createdTS = createdTS;
+		this.createdTSString = createdTS.toString();
 	}
 
 	public Timestamp getModified() {
@@ -50,6 +53,7 @@ public class Comment {
 
 	public void setModified(Timestamp modified) {
 		this.modified = modified;
+		this.modifiedString = modified.toString();
 	}
 
 	public String getComment() {
@@ -68,4 +72,11 @@ public class Comment {
 		this.flagged = flagged;
 	}
 
+    public String getCreatedTSString() {
+    	return createdTSString;
+    }
+    
+    public String getModifiedString() {
+    	return modifiedString;
+    }
 }

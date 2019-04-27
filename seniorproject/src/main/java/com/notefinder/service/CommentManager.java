@@ -9,4 +9,5 @@ public interface CommentManager {
 	public int delete(int id);
 	public Comment getCommentById(int id);
 	public List<Comment> getComments();
+	public List<Comment> getPostComments(int id);
 }

@@ -3,7 +3,9 @@ package com.notefinder.controllers;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;    
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +20,15 @@ public class CommentController {
     
 	@Autowired    
     CommentManager manager;
+    
+    @RequestMapping(value = "/getPostComments/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<Comment>> getPostComments(@PathVariable int id) {
+        List<Comment> comments = manager.getPostComments(id);
+        if(comments.isEmpty()){
+            return new ResponseEntity<List<Comment>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Comment>>(comments, HttpStatus.OK);
+    }
     
     @RequestMapping("/viewcomment")    
     public String viewcomment(Model m){    
